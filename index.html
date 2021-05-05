@@ -21,13 +21,28 @@
 			</label>
 
 			<div class="players-table js-players-table">
-				<label class="player-1-label">
+				<!-- juste le premier joueur est visible par defaut (les autres ont display: none) -->
+				<div class="player-1-setup js-player-1-setup">
 					<span class="player-label__label">Player 1:</span>
 					<input type="text" value="Player 1">
 					<!-- Ces select sont remplis avec le js -->
 					<select class="job-select js-job-select"></select>
 					<select class="color-select js-color-select"></select>
-				</label>
+				</div>
+				<div class="player-2-setup js-player-2-setup">
+					<span class="player-label__label">Player 2:</span>
+					<input type="text" value="Player 2">
+
+					<select class="job-select js-job-select"></select>
+					<select class="color-select js-color-select"></select>
+				</div>
+				<div class="player-3-setup js-player-3-setup">
+					<span class="player-label__label">Player 3:</span>
+					<input type="text" value="Player 3">
+					<!-- Ces select sont remplis avec le js -->
+					<select class="job-select js-job-select"></select>
+					<select class="color-select js-color-select"></select>
+				</div>
 			</div>
 
 		</form>

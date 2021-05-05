@@ -12,6 +12,8 @@ import {
 
 
 (function () {
+  insertProfessionAndColorOptions();
+
   let playerSelectOptions = document.getElementsByClassName("js-player-select__option");
 
   for (let i = 0; i < playerSelectOptions.length; i++) {
@@ -19,58 +21,53 @@ import {
     option.addEventListener("click", onClickOption);
   }
 
-  insertP1ProfessionAndColorOptions();
 
 })();
 
 
 function onClickOption(event) {
-  const numOfPlayers = parseInt(event.target.value, 10);
+  const newNumOfPlayers = parseInt(event.target.value, 10);
   let playersTable = document.querySelector('.js-players-table');
-  if (playersTable.childElementCount === numOfPlayers)
+
+  let oldNumOfPlayers = 0;
+  for (let player of playersTable.children) {
+    const styles = window.getComputedStyle(player);
+    if (styles.getPropertyValue('display') === 'block')
+      oldNumOfPlayers++;
+  }
+
+  console.log(oldNumOfPlayers, newNumOfPlayers);
+
+  if (oldNumOfPlayers === newNumOfPlayers) {
     return;
 
-  // retire d'abord tous les joueurs
-  playersTable.textContent = '';
+  } else if (newNumOfPlayers > oldNumOfPlayers) {
+      for (let i = 2; i <= newNumOfPlayers; i++) {
+        let player = document.querySelector(`.player-${i}-setup`);
+        player.style.display = 'block';
+      }
 
-  // reinsere les joueurs en fonction du nombre de joueurs
-  for (let i = 1; i <= numOfPlayers; i++) {
-    const inputVal = `Player ${i}`;
-    let label = document.createElement('label');
-    label.style.display = "block";
-    label.classList.add(`player-${i}-label`);
-
-    let span = document.createElement('span');
-    span.classList.add('player-label__label');
-    span.textContent = inputVal + ':';
-    label.appendChild(span);
-
-    let input = document.createElement('input');
-    input.type = "text", input.value = inputVal;
-    label.appendChild(input);
-
-    let jobSelect = document.createElement('select');
-    jobSelect.classList.add('job-select');
-    genJobOptions(jobSelect);
-    label.appendChild(jobSelect);
-
-    let colorSelect = document.createElement('select');
-    colorSelect.classList.add('color-select');
-    genColorOptions(colorSelect);
-    label.appendChild(colorSelect);
-    // let br = document.createElement('br');
-    // label.append(br);
-    playersTable.appendChild(label);
+    // ou tout simplement else{...}
+  } else if (oldNumOfPlayers > newNumOfPlayers) {
+      for (let i = oldNumOfPlayers; i > newNumOfPlayers; i--) {
+        // i-1 car l'indice va de 0 a length-1
+        playersTable.children[i-1].style.display = 'none';
+      }
   }
 
 }
 
-/* inserer les options pour les menus de selection du metier et de la couleur (pour le premieur joeur - joueur initial) */
-function insertP1ProfessionAndColorOptions() {
+/* inserer les options pour les menus de selection du metier et de la couleur */
+function insertProfessionAndColorOptions() {
   const professions = getProfessions();
-  let p1JobSelectMenu = document.querySelector('.js-job-select');
-  genJobOptions(p1JobSelectMenu);
+  let jobSelectMenus = document.querySelectorAll('.js-job-select');
+  jobSelectMenus.forEach(menu => {
+    genJobOptions(menu);
+  });
 
-  let p1ColorSelectMenu = document.querySelector('.js-color-select');
-  genColorOptions(p1ColorSelectMenu);
+  let colorSelectMenus = document.querySelectorAll('.js-color-select');
+  colorSelectMenus.forEach(menu => {
+    genColorOptions(menu);
+  });
+
 }

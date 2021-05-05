@@ -2,3 +2,8 @@
 .job-select {
   display: block;
 }
+
+.player-2-setup,
+.player-3-setup {
+  display: none;
+}

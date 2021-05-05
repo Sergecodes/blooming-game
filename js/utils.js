@@ -36,7 +36,7 @@ export function generateJobSelectMenuOptions(jobSelectMenu) {
   for (let profession of professions) {
     let option = document.createElement('option');
     let optionContent = `${profession.name} (${profession.monthlySalary} CFA)`;
-    option.classList.add('job-select__option');
+    // option.classList.add('job-select__option');
     option.value = optionContent;
     option.textContent = optionContent;
     jobSelectMenu.appendChild(option);
@@ -54,7 +54,7 @@ export function generateColorSelectMenuOptions(colorSelectMenu) {
 
   for (let color of colors) {
     let option = document.createElement('option');
-    option.classList.add('color-select__option');
+    // option.classList.add('color-select__option');
     option.value = color;
     option.textContent = color;
     colorSelectMenu.appendChild(option);
