@@ -1,6 +1,6 @@
 
 /* description may be null */
-class Doodad {
+export default class Doodad {
   constructor(name, cost, description) {
     this.name = name;
     this.cost = cost;

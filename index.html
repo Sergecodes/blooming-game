@@ -5,25 +5,34 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<link rel="stylesheet" href="css/bootstrap5-beta3.min.css">
 	<link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-	<div id="player-setup">
+<body class="page">
+	<div>
 		<form>
 			<label>
-				Nombre de joueurs:
+				<span>Nombre de joueurs:</span>
 				<select class="player-select">
-					<option class="player-select__option" value="1" selected>1</option>
-					<option class="player-select__option" value="2">2</option>
-					<option class="player-select__option" value="3">3</option>
+					<option class="player-select__option js-player-select__option" value="1" selected>1</option>
+					<option class="player-select__option js-player-select__option" value="2">2</option>
+					<option class="player-select__option js-player-select__option" value="3">3</option>
 				</select>
 			</label>
-		</form>
-		<div class="players-table">
 
-		</div>
+			<div class="players-table js-players-table">
+				<label class="player-1-label">
+					<span class="player-label__label">Player 1:</span>
+					<input type="text" value="Player 1">
+					<!-- Ces select sont remplis avec le js -->
+					<select class="job-select js-job-select"></select>
+					<select class="color-select js-color-select"></select>
+				</label>
+			</div>
+
+		</form>
 	</div>
 
-	<script src="js/pre-init.js"></script>
+	<script src="build/app.js"></script>
 </body>
 </html>

@@ -4,6 +4,9 @@
   "description": "A school project inspired by the Cash Flow Game invented by Robert Kiyosaki",
   "main": "index.js",
   "scripts": {
+    "start": "webpack --config ./webpack.config.js --watch",
+    "build": "webpack --mode production && node build-sw",
+    "serve": "webpack-dev-server --mode=development --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +23,7 @@
     "@babel/core": "^7.14.0",
     "@babel/preset-env": "^7.14.0",
     "babel-loader": "^8.2.2",
-    "webpack": "^5.36.2"
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.6.0"
   }
 }

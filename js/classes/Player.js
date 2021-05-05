@@ -2,7 +2,7 @@ import Party from './Party';
 
 
 // player's profession is randomly selected
-class Player {
+export default class Player {
   constructor(pseudonym, playColour, profession, monthlyCashFlow, savingsAmount) {
     this.id = Party.getNewPlayerId();
     this.pseudonym = pseudonym;
