@@ -1,23 +1,31 @@
 import Profession from './classes/Profession';
+import Asset from './classes/Asset';
+import Party from './classes/Party';
 
-
-const professionsAndSalaries = {
+const COLORS = ['red', 'blue', 'green', 'orange', 'white', 'pink', 'purple'];
+const PROFESSIONS_AND_SALARIES = {
   'Docteur': 500000,
   'Ingenieur': 400000,
   'Enseignant': 300000,
   'Infirmier': 50000,
   'Policier': 60000,
 };
-const colors = [
-  'red', 'blue', 'green',
-  'orange', 'white', 'pink',
-  'purple'
-];
+
+// const ASSETS = [
+//   new Asset()
+//   {
+//     name:
+//     type:
+//     description:
+//     cost:
+//     owner:
+//   }
+// ]
 
 export function getProfessions() {
   let professionsList = [];
-  for (const entry in professionsAndSalaries) {
-    professionsList.push(new Profession(entry, professionsAndSalaries[entry]));
+  for (const entry in PROFESSIONS_AND_SALARIES) {
+    professionsList.push(new Profession(entry, PROFESSIONS_AND_SALARIES[entry]));
   }
 
   return professionsList;
@@ -52,7 +60,7 @@ export function generateColorSelectMenuOptions(colorSelectMenu) {
 
   colorSelectMenu.appendChild(defaultOption);
 
-  for (let color of colors) {
+  for (let color of COLORS) {
     let option = document.createElement('option');
     // option.classList.add('color-select__option');
     option.value = color;
@@ -60,3 +68,44 @@ export function generateColorSelectMenuOptions(colorSelectMenu) {
     colorSelectMenu.appendChild(option);
   }
 }
+
+/* Generer la liste des atouts disponible */
+export function generateAssets() {
+  // initially, there is one asset in div.assets-list (see html)
+  let assetsList = document.querySelector('.js-assets-list');
+  const ASSET_NAMES = [
+    'Small real estate', 'Big real estate', "Short-term investments",
+    "Cash", 'Stocks', "Mutuals", "Cars & Trucks", "Inventory",
+  ];
+  // HTML Structure
+  /* <div class="form-check">
+    <label>
+      <span class="form-check-label">Coins</span>
+      <input class="form-check-input" type="checkbox">
+    </label>
+  </div>
+  */
+  for (let assetName of ASSET_NAMES) {
+    let div = document.createElement('div');
+    div.classList.add('form-check');
+
+    let label = document.createElement('label');
+    let span = document.createElement('span');
+    span.classList.add('form-check-label');
+    span.textContent = assetName;
+    label.appendChild(span);
+
+    let input = document.createElement('input');
+    input.type = "checkbox";
+    input.classList.add('form-check-input');
+    label.appendChild(input);
+    div.appendChild(label);
+    assetsList.append(div);
+  }
+
+}
+
+// Current assets: cash, accounts receivable, inventory(equipment), short-term investments, prepaid expenses
+// Fixed assets: cars and trucks, land, furniture, buildings, machinery
+//
+// => small real estate, big real estate, stocks, mutuals, cars & trucks, furniture, limited partnership, companies

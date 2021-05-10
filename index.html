@@ -9,11 +9,11 @@
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="page">
-	<div>
-		<form>
+	<div class="setup-forms-wrapper">
+		<form class="player-setup-form">
 			<label>
 				<span>Nombre de joueurs:</span>
-				<select class="player-select">
+				<select class="player-select form-select">
 					<option class="player-select__option js-player-select__option" value="1" selected>1</option>
 					<option class="player-select__option js-player-select__option" value="2">2</option>
 					<option class="player-select__option js-player-select__option" value="3">3</option>
@@ -22,29 +22,85 @@
 
 			<div class="players-table js-players-table">
 				<!-- juste le premier joueur est visible par defaut (les autres ont display: none) -->
-				<div class="player-1-setup js-player-1-setup">
+				<div class="player-1-setup js-player-1-setup mb-3">
 					<span class="player-label__label">Player 1:</span>
-					<input type="text" value="Player 1">
+					<input class="form-control" type="text" placeholder="Entrez votre pseudo">
 					<!-- Ces select sont remplis avec le js -->
-					<select class="job-select js-job-select"></select>
-					<select class="color-select js-color-select"></select>
+					<select class="job-select js-job-select form-select"></select>
+					<select class="color-select js-color-select form-select"></select>
 				</div>
-				<div class="player-2-setup js-player-2-setup">
+				<div class="player-2-setup js-player-2-setup mb-3">
 					<span class="player-label__label">Player 2:</span>
-					<input type="text" value="Player 2">
+					<input class="form-control" type="text" placeholder="Entrez votre pseudo">
 
-					<select class="job-select js-job-select"></select>
-					<select class="color-select js-color-select"></select>
+					<select class="job-select js-job-select form-select"></select>
+					<select class="color-select js-color-select form-select"></select>
 				</div>
 				<div class="player-3-setup js-player-3-setup">
 					<span class="player-label__label">Player 3:</span>
-					<input type="text" value="Player 3">
+					<input class="form-control" type="text" placeholder="Entrez votre pseudo">
 					<!-- Ces select sont remplis avec le js -->
-					<select class="job-select js-job-select"></select>
-					<select class="color-select js-color-select"></select>
+					<select class="job-select js-job-select form-select"></select>
+					<select class="color-select js-color-select form-select"></select>
+				</div>
+			</div>
+		</form>
+
+		<form class="game-setup-form">
+			<div>
+				<div class="mb-3">
+					<label class="form-label">
+						Nombre max d'enfants par joueur
+						<input type="number" class="form-control">
+					</label>
+				</div>
+				<div class="mb-2">
+					<label class="form-label">
+						Montant maximum de Small Deal
+						<input type="number" class="form-control">
+					</label>
+				</div>
+				<div class="mb-3">
+					<label class="form-label">
+						Montant minimum de Large Deal
+						<input type="number" class="form-control">
+					</label>
+				</div>
+				<div class="mb-3">
+					<span class="d-block">Duree de la partie</span>
+					<div class="form-check form-check-inline">
+						<label class="form-check-label">
+							30mins
+							<input class="form-check-input" name="duration" type="radio" checked>
+						</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<label class="form-check-label">
+							1hr
+							<input class="form-check-input" name="duration" type="radio">
+						</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<label class="form-check-label">
+							2hrs
+							<input class="form-check-input" name="duration" type="radio">
+						</label>
+					</div>
 				</div>
 			</div>
 
+			<div class="assets-setup">
+				<p class="h3">Atouts</p>
+				<div class="assets-list js-assets-list">
+					<div class="form-check">
+						<label>
+							<span class="form-check-label">Coins</span>
+							<input class="form-check-input" type="checkbox">
+						</label>
+					</div>
+					<!-- les autres atouts sont generes par le js -->
+				</div>
+			</div>
 		</form>
 	</div>
 
