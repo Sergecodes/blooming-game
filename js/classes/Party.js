@@ -9,7 +9,7 @@ export default class Party {
     this.maxSmallDealAmount = maxSmallDealAmount;
     this.minLargeDealAmount = minLargeDealAmount;
     this.loanInterestPercentage = loanInterestPercentage;
-    this.duraiton = duration;
+    this.duration = duration;
     this.players = [];
     this.assets = [];
     this.expenses = [];

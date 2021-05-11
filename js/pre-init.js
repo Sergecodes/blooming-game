@@ -5,6 +5,7 @@
 import Profession from './classes/Profession';
 import {
   getProfessions,
+  generateAssets,
   generateJobSelectMenuOptions as genJobOptions,
   generateColorSelectMenuOptions as genColorOptions,
 
@@ -13,19 +14,18 @@ import {
 
 (function () {
   insertProfessionAndColorOptions();
+  generateAssets();
 
   let playerSelectOptions = document.getElementsByClassName("js-player-select__option");
-
   for (let i = 0; i < playerSelectOptions.length; i++) {
     let option = playerSelectOptions[i];
-    option.addEventListener("click", onClickOption);
+    option.addEventListener("click", onClickPlayerSelectOption);
   }
-
 
 })();
 
-
-function onClickOption(event) {
+/* fonction evoquee lorsque une option pour choisir le nombre de joueurs est clickee */
+function onClickPlayerSelectOption(event) {
   const newNumOfPlayers = parseInt(event.target.value, 10);
   let playersTable = document.querySelector('.js-players-table');
 
@@ -35,8 +35,6 @@ function onClickOption(event) {
     if (styles.getPropertyValue('display') === 'block')
       oldNumOfPlayers++;
   }
-
-  console.log(oldNumOfPlayers, newNumOfPlayers);
 
   if (oldNumOfPlayers === newNumOfPlayers) {
     return;

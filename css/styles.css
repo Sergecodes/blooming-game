@@ -1,9 +1,48 @@
+.page {
+	background-image: url('../img/bg3.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 39em;
+}
+
+.setup-forms-wrapper {
+	display: flex;
+	justify-content: space-around;
+}
+
+.player-setup-form,
+.game-setup-form {
+	border: 5px rgb(145, 255, 0) groove;
+	list-style-type: none;
+	background-color: #6f439b;
+	width: 40%;
+	height: max-content;
+	background-size: contain;
+	margin: .2rem auto;
+	padding-left: .3rem;
+	animation: slide 2s linear;
+}
+
+@keyframes slide {
+	0% {
+		transform: translate(0, -100%);
+	}
+	100% {
+		transform: translate(0, 0);
+	}
+}
+
 
 .job-select {
-  display: block;
+  	display: block;
 }
 
 .player-2-setup,
 .player-3-setup {
-  display: none;
+  	display: none;
 }
+
+/* .player-1-setup,
+.player-2-setup,
+.player-3-setup {
+	margin: 5px;
+} */
