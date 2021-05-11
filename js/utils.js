@@ -109,3 +109,7 @@ export function generateAssets() {
 // Fixed assets: cars and trucks, land, furniture, buildings, machinery
 //
 // => small real estate, big real estate, stocks, mutuals, cars & trucks, furniture, limited partnership, companies
+
+export function setMinBigDealAmount(form) {
+  form.maxSmallDeal.value && form.maxSmallDeal.value > 0 ? form.minBigDeal.value = (form.maxSmallDeal.value * 1.5) : form.minBigDeal.value = form.maxSmallDeal.value
+}
