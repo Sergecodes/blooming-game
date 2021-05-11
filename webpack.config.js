@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
 	entry: [
 		'./index.js', './js/pre-init.js', './js/bootstrap5-beta3.bundle.min.js',
@@ -5,7 +7,7 @@ module.exports = {
 	],
 	output: {
 		filename: 'app.js',
-		path: __dirname + '/build',
+		path: path.resolve(__dirname + '/build'),
 	},
 	mode: 'development',
 

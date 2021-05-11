@@ -47,26 +47,26 @@
 		</form>
 
 		<form class="game-setup-form">
-			<div>
-				<div class="mb-3">
+			<div class="values-setup">
+				<div class="mb-3 children-number-setup">
 					<label class="form-label">
 						Nombre max d'enfants par joueur
-						<input type="number" class="form-control">
+						<input type="number" min="2" class="form-control">
 					</label>
 				</div>
-				<div class="mb-2">
+				<div class="mb-2 small-deal-setup">
 					<label class="form-label">
 						Montant maximum de Small Deal
-						<input type="number" class="form-control">
+						<input type="number" min="0" step="500" class="form-control small-deal-setup__input js-small-deal-setup__input">
 					</label>
 				</div>
-				<div class="mb-3">
+				<div class="mb-3 big-deal-setup">
 					<label class="form-label">
-						Montant minimum de Large Deal
-						<input type="number" class="form-control">
+						Montant minimum de Big Deal
+						<input type="number" min="0" step="500" class="form-control big-deal-setup__input js-big-deal-setup__input">
 					</label>
 				</div>
-				<div class="mb-3">
+				<div class="mb-3 duration-setup">
 					<span class="d-block">Duree de la partie</span>
 					<div class="form-check form-check-inline">
 						<label class="form-check-label">

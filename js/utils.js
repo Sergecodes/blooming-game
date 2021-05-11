@@ -71,7 +71,7 @@ export function generateColorSelectMenuOptions(colorSelectMenu) {
 
 /* Generer la liste des atouts disponible */
 export function generateAssets() {
-  // initially, there is one asset in div.assets-list (see html)
+  // initialement, il y a un asset dans div.assets-list (voir html)
   let assetsList = document.querySelector('.js-assets-list');
   const ASSET_NAMES = [
     'Small real estate', 'Big real estate', "Short-term investments",

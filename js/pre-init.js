@@ -1,7 +1,7 @@
 // $(function () {
 //
 // });
-// grippe aviaire (sort de ce corps)
+
 import Profession from './classes/Profession';
 import {
   getProfessions,
@@ -16,6 +16,9 @@ import {
   insertProfessionAndColorOptions();
   generateAssets();
 
+  let smallDealInput = document.querySelector('.js-small-deal-setup__input');
+  smallDealInput.addEventListener('change', onSmallDealAmtChange);
+
   let playerSelectOptions = document.getElementsByClassName("js-player-select__option");
   for (let i = 0; i < playerSelectOptions.length; i++) {
     let option = playerSelectOptions[i];
@@ -23,6 +26,14 @@ import {
   }
 
 })();
+
+/* evoquee lorsque la valeur du montant max de small deal est modifiee */
+function onSmallDealAmtChange(event) {
+  let bigDealInput = document.querySelector('.js-big-deal-setup__input');
+  const newMinBigDealAmt = 10 * parseInt(event.target.value, 10);
+  bigDealInput.setAttribute('min', newMinBigDealAmt);
+  bigDealInput.value = newMinBigDealAmt;
+}
 
 /* fonction evoquee lorsque une option pour choisir le nombre de joueurs est clickee */
 function onClickPlayerSelectOption(event) {
