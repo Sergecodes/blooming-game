@@ -8,14 +8,14 @@ import {
   generateAssets,
   generateJobSelectMenuOptions as genJobOptions,
   generateColorSelectMenuOptions as genColorOptions,
-  setMinDealAmount,
+  setMinBigDealAmount,
 } from './utils';
 
 
 (function () {
   insertProfessionAndColorOptions();
   generateAssets();
-  setMinDealAmt();
+  setMinBigDealAmt();
 
   let playerSelectOptions = document.getElementsByClassName("js-player-select__option");
   for (let i = 0; i < playerSelectOptions.length; i++) {
@@ -71,9 +71,9 @@ function insertProfessionAndColorOptions() {
 
 }
 
-function setMinDealAmt() {
+function setMinBigDealAmt() {
   const form = document.querySelector('.game-setup-form');
   form.addEventListener('change', e => {
-    setMinDealAmount(form);
+    setMinBigDealAmount(form);
   });
 }
