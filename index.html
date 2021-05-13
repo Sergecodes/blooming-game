@@ -9,11 +9,11 @@
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="page">
-	<div class="setup-forms-wrapper">
+	<div class="setup-forms-wrapper js-setup-forms-wrapper">
 		<form class="player-setup-form">
 			<label>
 				<span>Nombre de joueurs:</span>
-				<select class="player-select form-select">
+				<select class="form-select mb-2 player-select">
 					<option class="player-select__option js-player-select__option" value="1" selected>1</option>
 					<option class="player-select__option js-player-select__option" value="2">2</option>
 					<option class="player-select__option js-player-select__option" value="3">3</option>
@@ -22,85 +22,92 @@
 
 			<div class="players-table js-players-table">
 				<!-- juste le premier joueur est visible par defaut (les autres ont display: none) -->
-				<div class="player-1-setup js-player-1-setup mb-3">
-					<span class="player-label__label">Player 1:</span>
-					<input class="form-control" type="text" placeholder="Entrez votre pseudo">
-					<!-- Ces select sont remplis avec le js -->
-					<select class="job-select js-job-select form-select"></select>
-					<select class="color-select js-color-select form-select"></select>
+				<div class="mb-2 player-1-setup js-player-1-setup">
+					<div class="form-floating w-75">
+						<input id="playerInput1" type="text" class="form-control js-players-table__input js-player-1-setup__input" value="Player 1" autofocus>
+						<label for="playerInput1">Nom du joueur</label>
+					</div>
 				</div>
-				<div class="player-2-setup js-player-2-setup mb-3">
-					<span class="player-label__label">Player 2:</span>
-					<input class="form-control" type="text" placeholder="Entrez votre pseudo">
-
-					<select class="job-select js-job-select form-select"></select>
-					<select class="color-select js-color-select form-select"></select>
+				<div class="mb-2 player-2-setup js-player-2-setup">
+					<div class="form-floating w-75">
+						<input id="playerInput2" type="text" class="form-control js-players-table__input js-player-2-setup__input" value="Player 2">
+						<label for="playerInput2">Nom du joueur</label>
+					</div>
 				</div>
-				<div class="player-3-setup js-player-3-setup">
-					<span class="player-label__label">Player 3:</span>
-					<input class="form-control" type="text" placeholder="Entrez votre pseudo">
-					<!-- Ces select sont remplis avec le js -->
-					<select class="job-select js-job-select form-select"></select>
-					<select class="color-select js-color-select form-select"></select>
+				<div class="mb-1 player-3-setup js-player-3-setup">
+					<div class="form-floating w-75">
+						<input id="playerInput3" type="text" class="form-control js-players-table__input js-player-3-setup__input" value="Player 3">
+						<label for="playerInput3">Nom du joueur</label>
+					</div>
 				</div>
 			</div>
 		</form>
 
-		<form class="game-setup-form">
-			<div class="values-setup">
-				<div class="mb-3 children-number-setup">
-					<label class="form-label">
-						Nombre max d'enfants par joueur
-						<input type="number" min="2" class="form-control">
-					</label>
-				</div>
-				<div class="mb-2 small-deal-setup">
-					<label class="form-label">
-						Montant maximum de Small Deal
-						<input type="number" min="0" step="500" class="form-control small-deal-setup__input js-small-deal-setup__input">
-					</label>
-				</div>
-				<div class="mb-3 big-deal-setup">
-					<label class="form-label">
-						Montant minimum de Big Deal
-						<input type="number" min="0" step="500" class="form-control big-deal-setup__input js-big-deal-setup__input">
-					</label>
-				</div>
-				<div class="mb-3 duration-setup">
-					<span class="d-block">Duree de la partie</span>
-					<div class="form-check form-check-inline">
-						<label class="form-check-label">
-							30mins
-							<input class="form-check-input" name="duration" type="radio" checked>
-						</label>
-					</div>
-					<div class="form-check form-check-inline">
-						<label class="form-check-label">
-							1hr
-							<input class="form-check-input" name="duration" type="radio">
-						</label>
-					</div>
-					<div class="form-check form-check-inline">
-						<label class="form-check-label">
-							2hrs
-							<input class="form-check-input" name="duration" type="radio">
-						</label>
-					</div>
-				</div>
-			</div>
+		<form class="game-setup-form js-game-setup-form" name="gameSetup">
+		  <div class="values-setup">
+		    <div class="mb-2 children-number-setup">
+		      <label class="form-label">
+		        Nombre max d'enfants par joueur
+		        <input type="number" min="2" class="form-control children-number-setup__input js-children-number-setup__input" required>
+		      </label>
+		    </div>
+		    <div class="mb-2 loan-interest-percent-setup">
+		      <label class="form-label">
+		        Pourcentage d'interet sur un pret
+		        <input type="number" min="0" max="100" class="form-control loan-interest-percent-setup__input js-loan-interest-percent-setup__input" required>
+		      </label>
+		    </div>
+		    <div class="mb-2 small-deal-setup">
+		      <label class="form-label">
+		        Montant maximum de Small Deal
+		        <input type="number" min="0" step="500" class="form-control small-deal-setup__input js-small-deal-setup__input" required>
+		      </label>
+		    </div>
+		    <div class="mb-2 big-deal-setup">
+		      <label class="form-label">
+		        Montant minimum de Big Deal
+		        <input type="number" min="0" step="500" class="form-control big-deal-setup__input js-big-deal-setup__input" required>
+		      </label>
+		    </div>
+		    <div class="mb-2 duration-setup">
+		      <span class="d-block">Duree de la partie</span>
+		      <div class="form-check form-check-inline">
+		        <label class="form-check-label">
+		          30mins
+		          <input class="form-check-input duration-setup__input js-duration-setup__input" name="duration" type="radio" value="30" checked>
+		        </label>
+		      </div>
+		      <div class="form-check form-check-inline">
+		        <label class="form-check-label">
+		          1hr
+		          <input class="form-check-input duration-setup__input js-duration-setup__input" name="duration" type="radio" value="60">
+		        </label>
+		      </div>
+		      <div class="form-check form-check-inline">
+		        <label class="form-check-label">
+		          2hrs
+		          <input class="form-check-input duration-setup__input js-duration-setup__input" name="duration" type="radio" value="120">
+		        </label>
+		      </div>
+		    </div>
+		  </div>
 
-			<div class="assets-setup">
-				<p class="h3">Atouts</p>
-				<div class="assets-list js-assets-list">
-					<div class="form-check">
-						<label>
-							<span class="form-check-label">Coins</span>
-							<input class="form-check-input" type="checkbox">
-						</label>
-					</div>
-					<!-- les autres atouts sont generes par le js -->
-				</div>
-			</div>
+		  <div class="assets-setup">
+		    <p class="h3">Atouts</p>
+		    <div class="assets-list js-assets-list">
+		      <div class="form-check">
+		        <label>
+		          <span class="form-check-label">Coins</span>
+		          <input class="form-check-input" type="checkbox">
+		        </label>
+		      </div>
+		      <!-- les autres atouts sont generes par le js -->
+		    </div>
+		  </div>
+		  <div class="d-grid gap-2 p-2">
+				<input type="submit" class="btn btn-primary start-game-button js-start-game-button" value="Commencer">
+		    <!-- <button type="submit" class="btn btn-primary start-game-button js-start-game-button">Commencer</button> -->
+		  </div>
 		</form>
 	</div>
 

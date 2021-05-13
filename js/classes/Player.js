@@ -1,17 +1,13 @@
-import Party from './Party';
 
+const SAVINGS_AMT = 10000;
 
-// player's profession is randomly selected
 export default class Player {
-  constructor(name, playColour, profession, monthlyCashFlow, savingsAmount) {
-    this.id = Party.getNewPlayerId();
+  // monthlyCashFlow is also the player's paycheck
+  constructor(name, profession, monthlyCashFlow) {
     this.name = name;
-    this.playColour = playColour;
     this.profession = profession;
-    this.savingsAmount = savingsAmount;
+    this.cash = monthlyCashFlow + SAVINGS_AMT;
     this.assets = [];
     this.expenses = [];
-
-    this.cash = 0;
   }
 }
