@@ -1,7 +1,6 @@
 import Profession from './classes/Profession';
 import Asset from './classes/Asset';
 
-const COLORS = ['red', 'blue', 'green', 'orange', 'white', 'pink', 'purple'];
 const PROFESSIONS_AND_SALARIES = {
   'Docteur': 500000,
   'Ingenieur': 400000,
@@ -55,7 +54,7 @@ export function generateAssets() {
     </label>
   </div>
   */
-  for (let assetName of ASSET_NAMES) {
+  for (const assetName of ASSET_NAMES) {
     let div = document.createElement('div');
     div.classList.add('form-check');
 
@@ -84,10 +83,10 @@ export function getPartyConstructorVals() {
   const loanInterestPercent = parseInt(document.querySelector('.js-loan-interest-percent-setup__input').value);
   const durationInputs = document.getElementsByClassName('js-duration-setup__input');
   let duration;
-  for (let element of durationInputs) {
-    // au moins un element sera coche'
-    if (element.checked) {
-      duration = parseInt(element.value);
+  for (const input of durationInputs) {
+    // au moins un input sera coche'
+    if (input.checked) {
+      duration = parseInt(input.value);
       break;
     }
   }

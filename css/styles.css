@@ -31,18 +31,65 @@
 	}
 }
 
-
 .job-select {
   	display: block;
 }
 
+.game-board,
 .player-2-setup,
 .player-3-setup {
   	display: none;
 }
 
-/* .player-1-setup,
-.player-2-setup,
-.player-3-setup {
-	margin: 5px;
+.choose-dream {
+    text-align: center;
+    border: 2px groove black;
+    margin:0 auto;
+    width: 30em;
+    border-radius: 10px;
+    background-color: rgb(247, 241, 234);
+}
+
+.dream {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* .dream-title, */
+.dream-description {
+    margin: 10px 10%;
+}
+
+.choose-dream__arrow {
+		width: 0;
+		height: 0;
+		border-top: 20px solid transparent;
+		border-bottom: 20px solid transparent;
+		align-self: center;
+}
+
+.choose-dream__arrow--left {
+		border-right: 30px solid blueviolet;
+    float: left;
+}
+
+.choose-dream__arrow--right{
+		border-left: 30px solid blueviolet;
+    float: right;
+}
+
+
+/* section {
+	width: 300px;
+	text-align: center;
+	border: 1px solid black;
+	border-radius: 12px/10px;
+	margin: 150px;
+	padding: 10px;
+}
+p{
+	text-align: justify;
+}
+h2{
+	color:rgb(90,70,10);
 } */

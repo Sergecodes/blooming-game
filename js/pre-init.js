@@ -4,7 +4,7 @@ import {
 
 } from './utils';
 import {
-  onSmallDealAmtChange,
+  onChangeSmallDealAmt,
   onClickPlayerSelectOption,
   onClickStartButton,
 
@@ -15,7 +15,7 @@ import {
   generateAssets();
 
   let smallDealInput = document.querySelector('.js-small-deal-setup__input');
-  smallDealInput.addEventListener('change', onSmallDealAmtChange);
+  smallDealInput.addEventListener('change', onChangeSmallDealAmt);
 
   let playerSelectOptions = document.getElementsByClassName("js-player-select__option");
   for (let i = 0; i < playerSelectOptions.length; i++) {

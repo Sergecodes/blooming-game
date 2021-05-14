@@ -15,6 +15,7 @@ export default class Party {
     this.players = [];
     this.assets = [];
     this.expenses = [];
+    this.professions = []; 
   }
 
   // get remainingTime() {

@@ -6,8 +6,10 @@ import {
 
 } from './utils';
 
+const SAVINGS_AMT = 10000;
+
 /* evoquee lorsque la valeur du montant max de small deal est modifiee */
-export function onSmallDealAmtChange(event) {
+export function onChangeSmallDealAmt(event) {
   const newMinBigDealAmt = 10 * parseInt(event.target.value);
   let bigDealInput = document.querySelector('.js-big-deal-setup__input');
   bigDealInput.min = newMinBigDealAmt;
@@ -16,7 +18,7 @@ export function onSmallDealAmtChange(event) {
 
 /* evoquee lorsque une option pour choisir le nombre de joueurs est clickee */
 export function onClickPlayerSelectOption(event) {
-  const newNumOfPlayers = parseInt(event.target.value, 10);
+  const newNumOfPlayers = parseInt(event.target.value);
   let playersTable = document.querySelector('.js-players-table');
 
   let oldNumOfPlayers = 0;
@@ -45,10 +47,10 @@ export function onClickPlayerSelectOption(event) {
 
 }
 
-/* evoquee lorsque le bouton Commencer est clicke' (quand le formulaire est soumis) */
+/* evoquee lorsque le bouton Commencer est clicke' (quand le formulaire est soumi) */
 export function onClickStartButton(event) {
   let form = document.forms["gameSetup"];
-  for (let input of form.elements) {
+  for (const input of form.elements) {
     if (input.value === '') {
       return false;
     }
@@ -64,14 +66,16 @@ export function onClickStartButton(event) {
   // Party(maxNumOfChildren, maxSmallDealAmt, minLargeDealAmt, loanInterestPercent, duration, startTime)
   // obj: { maxNumOfChildren, maxSmallDealAmt, minBigDealAmt, loanInterestPercent, duration, startTime };
   let players = [];
-  const obj = getPartyConstructorVals(), savingsAmount = 10000;
+  const obj = getPartyConstructorVals();
   const playerInputs = document.getElementsByClassName('js-players-table__input');
-  for (let input of playerInputs) {
+  for (const input of playerInputs) {
     let profession = randomProfession();
     // Player(name, profession, monthlyCashFlow)
     players.push(new Player(input.value, profession, profession.monthlySalary));
   }
 
+  let gameBoard = document.querySelector('.game-board');
+  gameBoard.style.display = 'block';
   // TODO:  create some dreams, initialize assets array
 
   // let party = new Party(
@@ -85,6 +89,5 @@ export function onClickStartButton(event) {
   // party.players = players;
   // party.assets = assets;
   // party.dreams = dreams;
-
 
 }
