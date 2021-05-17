@@ -1,8 +1,13 @@
 import Party from "./classes/Party";
 import Player from "./classes/Player";
-import { getPartyConstructorVals, randomProfession } from "./utils";
+import {
+  SAVINGS_AMT,
+  DREAMS,
+  createDream,
+  getPartyConstructorVals,
+  randomProfession
+} from "./utils";
 
-const SAVINGS_AMT = 10000;
 
 /* evoquee lorsque la valeur du montant max de small deal est modifiee */
 export function onChangeSmallDealAmt(event) {
@@ -86,27 +91,16 @@ export function onClickStartButton(event) {
   // party.dreams = dreams;
 }
 
-export function onChooseDream(event, dreams) {
-
+/* ajouter l'evenement a effectuer lorsqu'un joueur choisir un autre reve (en parcourant les reves) */
+export function onChangeDream() {
   let position = 0;
-  document.querySelector(".choose-dream__arrow--left").addEventListener('click', e => {
-    e.preventDefault();
-    // position -= 1;
-    position <= 0 ? position = dreams.length - 1: position -= 1;
-    createDream(dreams[position]);
-    console.log(position);
+  document.querySelector(".js-choose-dream__arrow--left").addEventListener('click', e => {
+    position <= 0 ? position = DREAMS.length - 1: position -= 1;
+    createDream(DREAMS[position]);
   });
 
-  document.querySelector(".choose-dream__arrow--right").addEventListener('click', e => {
-    e.preventDefault();
-    position >= dreams.length - 1? position = 0: position += 1;
-    createDream(dreams[position]);
-    console.log(position);
+  document.querySelector(".js-choose-dream__arrow--right").addEventListener('click', e => {
+    position >= DREAMS.length - 1? position = 0: position += 1;
+    createDream(DREAMS[position]);
   });
-}
-
-export function createDream(dream) {
-  const dreamContent = document.querySelector(".dream-block");
-  dreamContent.innerHTML = `<p class="dream-title">${dream.name}</p>
-                            <p class="dream-description">${dream.description}</p>`;
 }

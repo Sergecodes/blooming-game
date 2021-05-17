@@ -9,6 +9,31 @@ const PROFESSIONS_AND_SALARIES = {
   'Policier': 60000,
 };
 
+export const SAVINGS_AMT = 10000;
+// some default dreams
+export const DREAMS = [
+  {
+    name: 'dream one',
+    description: 'this is the first dream',
+    cost: '10',
+  },
+  {
+    name: 'dream two',
+    description: 'this is the second dream',
+    cost: '20',
+  },
+  {
+    name: 'dream three',
+    description: 'this is the third dream',
+    cost: '30',
+  },
+  {
+    name: 'dream four',
+    description: 'this is the fourth dream',
+    cost: '40',
+  },
+];
+
 /*
 const ASSETS = [
   new Asset()
@@ -36,6 +61,13 @@ function getProfessions() {
 export function randomProfession() {
   const professions = getProfessions(), n = professions.length;
   return professions[Math.floor(Math.random() * n)];
+}
+
+/* pour creer un reve (l'inserer dans le html) */
+export function createDream(dream) {
+  let dreamContent = document.querySelector(".dream-block");
+  dreamContent.innerHTML = `<p class="dream-title">${dream.name}</p>
+                            <p class="dream-description">${dream.description}</p>`;
 }
 
 /* Generer la liste des atouts disponible */
