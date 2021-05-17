@@ -32,6 +32,6 @@ import {
   // inserer le reve initial dans le html
   createDream(DREAMS[0]);
   // ajouter l'evenement a effectuer lorsqu'un joueur parcour les reves
-  onChangeDream();
+  onChangeDream(DREAMS);
 
 })();
