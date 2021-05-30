@@ -1,3 +1,5 @@
+/** Contient les constantes importantes et fonctions d'utilites */
+
 import Profession from './classes/Profession';
 import Asset from './classes/Asset';
 
@@ -10,42 +12,61 @@ const PROFESSIONS_AND_SALARIES = {
 };
 
 export const SAVINGS_AMT = 10000;
-// some default dreams
+
+/* retourne le nombre de joueurs de la partie */
+export function numPlayers() {
+  // TODO: implement
+}
+
+// les investissements de la partie Fast Track
+export const BUSINESS_INVESTMENTS = [
+  {
+    title: 'business 1',
+    bought: false,
+    downPayment: 100000,  // the cost of the investment
+    description: 'This is the first business'
+  },
+  {
+    title: 'business 2',
+    bought: false,
+    downPayment: 200000,
+    description: 'This is the first business'
+  },
+  {
+    title: 'business 3',
+    bought: false,
+    downPayment: 300000,
+    description: 'This is the first business'
+  },
+];
+
+// certains reves
 export const DREAMS = [
   {
     name: 'dream one',
     description: 'this is the first dream',
-    cost: '10',
+    cost: 10,
+    buyers: []   // liste des joueurs qui ont achete ce reve
   },
   {
     name: 'dream two',
     description: 'this is the second dream',
-    cost: '20',
+    cost: 20,
+    buyers: []
   },
   {
     name: 'dream three',
     description: 'this is the third dream',
-    cost: '30',
+    cost: 30,
+    buyers: []
   },
   {
     name: 'dream four',
     description: 'this is the fourth dream',
-    cost: '40',
+    cost: 40,
+    buyers: []
   },
 ];
-
-/*
-const ASSETS = [
-  new Asset()
-  {
-    name:
-    type:
-    description:
-    cost:
-    owner:
-  }
-]
-*/
 
 /* retourne un tableau des instances de Profession disponible */
 function getProfessions() {
@@ -74,31 +95,31 @@ export function createDream(dream) {
 export function generateAssets() {
   // initialement, il y a un asset dans div.assets-list (voir html)
   let assetsList = document.querySelector('.js-assets-list');
-  const ASSET_NAMES = [
+  const ASSET_TYPES = [
     'Small real estate', 'Big real estate', "Short-term investments",
     "Cash", 'Stocks', "Mutuals", "Cars & Trucks", "Inventory",
   ];
   // HTML Structure
   /* <div class="form-check">
     <label>
-      <span class="form-check-label">Coins</span>
+      <span class="form-check-label">nomAtout</span>
       <input class="form-check-input" type="checkbox">
     </label>
   </div>
   */
-  for (const assetName of ASSET_NAMES) {
+  for (const assetName of ASSET_TYPES) {
     let div = document.createElement('div');
     div.classList.add('form-check');
 
     let label = document.createElement('label');
     let span = document.createElement('span');
-    span.classList.add('form-check-label');
+    span.classList.add('form-check-label');  // classe bootstrap
     span.textContent = assetName;
     label.appendChild(span);
 
     let input = document.createElement('input');
     input.type = "checkbox";
-    input.classList.add('form-check-input');
+    input.classList.add('form-check-input');   // classe bootstrap
     label.appendChild(input);
     div.appendChild(label);
     assetsList.append(div);

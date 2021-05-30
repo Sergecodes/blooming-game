@@ -95,13 +95,8 @@
 		  <div class="assets-setup">
 		    <p class="h3">Atouts</p>
 		    <div class="assets-list js-assets-list">
-		      <div class="form-check">
-		        <label>
-		          <span class="form-check-label">Coins</span>
-		          <input class="form-check-input" type="checkbox">
-		        </label>
-		      </div>
-		      <!-- les autres atouts sont generes par le js -->
+					<!-- les atouts sont dynamiquement generes(par le js) -->
+
 		    </div>
 		  </div>
 		  <div class="d-grid gap-2 p-2">
@@ -111,30 +106,341 @@
 		</form>
 	</div>
 
-	<div class="game-board">
-			<div class="choose-dream">
-				<p class="text-muted h5">Joeur 1</p>
-				<h1>Choisir votre rêve</h1>
+	<div class="choose-dream-forms js-choose-dream-forms">
+		<form class="choose-dream-form choose-dream-form--p1 js-choose-dream-form">
+			<p class="text-muted h5">Joeur 1</p>
+			<h1>Choisir votre rêve</h1>
 
-				<div class="dream">
-					<div class="choose-dream__arrow choose-dream__arrow--left js-choose-dream__arrow--left"></div>
-					<!-- ce bloc sera rempli par le js -->
-					<div class="dream-block">
-						<!-- <p class="dream-title">Lorem ipsum dolor sit amet</p>
-						<p class="dream-description">Stinctio minima, doloremque labafadsf inkl apil na ianegofi eiaf</p>  -->
-					</div>
-					<div class="choose-dream__arrow choose-dream__arrow--right js-choose-dream__arrow--right"></div>
+			<div class="dream">
+				<div class="choose-dream-form__arrow choose-dream-form__arrow--left js-choose-dream-form__arrow--left"></div>
+				<!-- ce bloc sera rempli par le js -->
+				<div class="dream-block">
+					<!-- <p class="dream-title">Lorem ipsum dolor sit amet</p>
+					<p class="dream-description">Stinctio minima, doloremque labafadsf inkl apil na ianegofi eiaf</p>  -->
 				</div>
-				<button class="btn btn-primary">Choisir</button>
+				<div class="choose-dream-form__arrow choose-dream-form__arrow--right js-choose-dream-form__arrow--right"></div>
 			</div>
-			<!-- <section>
-  	<p><h2>tour du joueur 1</h2>
-  		<h3>quand vous etes pret lance le dé et prenez votre tour</h3>
-  		Avant de commencer votre tour,examiner votre etat financier.Vous pouvez également utiliser cette fois pour rejouer les passifs ou emprunter de l'argent.
-  	</p>
-  	<section> -->
-		<div class="board-center">
-		</div>
+			<input class="btn btn-primary w-50 mb-2" type="submit" value="Choisir">
+			<!-- <button class="btn btn-primary">Choisir</button> -->
+		</form>
+		<form class="choose-dream-form choose-dream-form--p2 js-choose-dream-form">
+			<p class="text-muted h5">Joeur 2</p>
+			<h1>Choisir votre rêve</h1>
+
+			<div class="dream">
+				<div class="choose-dream-form__arrow choose-dream-form__arrow--left js-choose-dream-form__arrow--left"></div>
+				<!-- ce bloc sera rempli par le js -->
+				<div class="dream-block">
+					<!-- <p class="dream-title">Lorem ipsum dolor sit amet</p>
+					<p class="dream-description">Stinctio minima, doloremque labafadsf inkl apil na ianegofi eiaf</p>  -->
+				</div>
+				<div class="choose-dream-form__arrow choose-dream-form__arrow--right js-choose-dream-form__arrow--right"></div>
+			</div>
+			<input class="btn btn-primary w-50 mb-2" type="submit" value="Choisir">
+			<!-- <button class="btn btn-primary">Choisir</button> -->
+		</form>
+		<form class="choose-dream-form choose-dream-form--p3 js-choose-dream-form">
+			<p class="text-muted h5">Joeur 3</p>
+			<h1>Choisir votre rêve</h1>
+
+			<div class="dream">
+				<div class="choose-dream-form__arrow choose-dream-form__arrow--left js-choose-dream-form__arrow--left"></div>
+				<!-- ce bloc sera rempli par le js -->
+				<div class="dream-block">
+					<!-- <p class="dream-title">Lorem ipsum dolor sit amet</p>
+					<p class="dream-description">Stinctio minima, doloremque labafadsf inkl apil na ianegofi eiaf</p>  -->
+				</div>
+				<div class="choose-dream-form__arrow choose-dream-form__arrow--right js-choose-dream-form__arrow--right"></div>
+			</div>
+			<input class="btn btn-primary w-50 mb-2" type="submit" value="Choisir">
+			<!-- <button class="btn btn-primary">Choisir</button> -->
+		</form>
+	</div>
+
+	<!-- 11 horizontal cells & 8 vertical cells for fasttrack -->
+	<!-- 7 horizontal cells & 6 vertical cells for rat race -->
+	<!-- rr = Rat race, ft = Fast track */ -->
+	<div class="game-board js-game-board">
+		<table class="game-table" border="2">
+			<tr>
+				<td colspan="11" class="lead board-title">FastTrack</td>
+			</tr>
+			<tr>
+				<td class="ft-cell">CashFlow Day</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td colspan="9" class="lead board-title">Rat Race</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td rowspan="5" colspan="9" class="rr-table-wrapper">
+					<table class="rr-table" border="2">
+						<tr class="rr-row">
+							<td class="start-here-cell">
+								Start Here
+								<!-- extra items (may be an arrow, etc..) -->
+								<div class="token-space"></div>
+							</td>
+							<td class="rr-cell">
+								Opportunity
+								<div class="token-space"></div>
+							</td>
+							<td class="rr-cell">
+								Charity
+								<div class="token-space"></div>
+							</td>
+							<td class="rr-cell">
+								Foo
+								<div class="token-space"></div>
+						</td>
+							<td class="rr-cell">
+								Opportunity
+								<div class="token-space"></div>
+							</td>
+							<td class="rr-cell">
+								Bar
+								<div class="token-space"></div>
+							</td>
+							<td class="rr-cell">
+								Liability
+								<div class="token-space"></div>
+							</td>
+							<td class="rr-cell">
+								Opportunity
+								<div class="token-space"></div>
+							</td>
+							<td class="rr-cell">
+								Opportunity
+								<div class="token-space"></div>
+							</td>
+						</tr>
+						<tr class="rr-row">
+							<td class="rr-cell">
+								Offer
+								<div class="token-space"></div>
+							</td>
+							<td colspan="7" class="player-list">
+								<tr>
+									<td>Player 1</td>
+									<td>Player 2</td>
+									<td>Player 3</td>
+								</tr>
+							</td>
+							<td class="rr-cell">
+								Offer
+								<div class="token-space"></div>
+							</td>
+						</tr>
+						<tr class="rr-row">
+							<td class="rr-cell">Opportunity</td>
+							<td rowspan="3" colspan="7" class="player-info">
+								<!-- game info box or div -->
+							</td>
+							<td class="rr-cell">
+								Opportunity
+								<div class="token-space"></div>
+							</td>
+						</tr>
+						<tr class="rr-row">
+							<td class="rr-cell">
+								Liability
+								<div class="token-space"></div>
+							</td>
+							<td class="rr-cell">
+								Liability
+								<div class="token-space"></div>
+							</td>
+						</tr>
+						<tr class="rr-row">
+							<td class="rr-cell">
+								Child
+								<div class="token-space"></div>
+							</td>
+							<td class="rr-cell">
+								Child
+								<div class="token-space"></div>
+							</td>
+						</tr>
+						<tr class="rr-row">
+							<td class="rr-cell">
+								Child
+								<div class="token-space"></div>
+							</td>
+							<td class="rr-cell">
+								Opportunity
+								<div class="token-space"></div>
+							</td>
+							<td class="rr-cell">
+								Charity
+								<div class="token-space"></div>
+							</td>
+							<td class="rr-cell">
+								Liability
+								<div class="token-space"></div>
+							</td>
+							<td class="rr-cell">
+								Opportunity
+								<div class="token-space"></div>
+							</td>
+							<td class="rr-cell">
+								Foo
+								<div class="token-space"></div>
+							</td>
+							<td class="rr-cell">
+								Bar
+								<div class="token-space"></div>
+							</td>
+							<td class="rr-cell">
+								Liability
+								<div class="token-space"></div>
+							</td>
+							<td class="rr-cell">
+								Opportunity
+								<div class="token-space"></div>
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="ft-cell">CashFlow Day</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+				<td class="ft-cell">
+					<span>Business 1</span>
+					<span class="small text-muted">Description</span>
+				</td>
+			</tr>
+		</table>
 	</div>
 
 	<script src="build/app.js"></script>

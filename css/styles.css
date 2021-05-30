@@ -35,13 +35,16 @@
   	display: block;
 }
 
-.game-board,
 .player-2-setup,
 .player-3-setup {
   	display: none;
 }
 
-.choose-dream {
+.choose-dream-forms {
+	display: none;
+}
+
+.choose-dream-form {
     text-align: center;
     border: 2px groove black;
     margin:0 auto;
@@ -60,7 +63,7 @@
     margin: 10px 10%;
 }
 
-.choose-dream__arrow {
+.choose-dream-form__arrow {
 		width: 0;
 		height: 0;
 		border-top: 20px solid transparent;
@@ -68,20 +71,64 @@
 		align-self: center;
 }
 
-.choose-dream__arrow:hover {
+.choose-dream-form__arrow:hover {
 	cursor: pointer;
 }
 
-.choose-dream__arrow--left {
+.choose-dream-form__arrow--left {
 		border-right: 30px solid blueviolet;
     float: left;
 }
 
-.choose-dream__arrow--right{
+.choose-dream-form__arrow--right{
 		border-left: 30px solid blueviolet;
     float: right;
 }
 
+.game-board {
+	display: none;
+	margin: 8px;
+}
+
+.board-title {
+	text-align: center;
+
+}
+
+.ft-cell {
+	border-radius: 8px;
+	border: 2px solid purple;
+	width: 1.5rem;
+}
+
+.rr-table-wrapper {
+	height: 100%;
+}
+
+.rr-table {
+	width: 100%;
+	min-height: 100%;
+	height: 100%;
+	table-layout: fixed;
+}
+
+.rr-cell {
+	border-radius: 8px;
+	border: 2px solid purple;
+	width: 1.5rem;
+}
+
+.start-here-cell {
+	border-radius: 8px;
+	width: 1.5rem;
+	border: 2px solid blue;
+
+}
+
+.player-list {
+	display: flex;
+	justify-content: space-around;
+}
 
 /* section {
 	width: 300px;

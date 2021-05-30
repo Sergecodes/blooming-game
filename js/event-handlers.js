@@ -65,19 +65,22 @@ export function onClickStartButton(event) {
   // obj: { maxNumOfChildren, maxSmallDealAmt, minBigDealAmt, loanInterestPercent, duration, startTime };
   let players = [];
   const obj = getPartyConstructorVals();
-  const playerInputs = document.getElementsByClassName(
-    "js-players-table__input"
-  );
+  const playerInputs = document.querySelectorAll(".js-players-table__input");
   for (const input of playerInputs) {
     let profession = randomProfession();
     // Player(name, profession, monthlyCashFlow)
     players.push(new Player(input.value, profession, profession.monthlySalary));
   }
 
-  let gameBoard = document.querySelector(".game-board");
-  gameBoard.style.display = "block";
-  // TODO:  create some dreams, initialize assets array
+  // TODO: loop through players and display each choose dream form
+  //...
 
+  let gameBoard = document.querySelector('.js-game-board');
+  gameBoard.style.display = 'block';
+  let page = document.querySelector('.page');
+  page.style.background = 'aliceblue';
+
+  /*
   // let party = new Party(
   //   obj.maxNumOfChildren,
   //   obj.maxSmallDealAmt,
@@ -89,18 +92,30 @@ export function onClickStartButton(event) {
   // party.players = players;
   // party.assets = assets;
   // party.dreams = dreams;
+  */
 }
 
 /* ajouter l'evenement a effectuer lorsqu'un joueur choisir un autre reve (en parcourant les reves) */
 export function onChangeDream() {
   let position = 0;
-  document.querySelector(".js-choose-dream__arrow--left").addEventListener('click', e => {
+  document.querySelector(".js-choose-dream-form__arrow--left").addEventListener('click', e => {
     position <= 0 ? position = DREAMS.length - 1: position -= 1;
     createDream(DREAMS[position]);
   });
 
-  document.querySelector(".js-choose-dream__arrow--right").addEventListener('click', e => {
+  document.querySelector(".js-choose-dream-form__arrow--right").addEventListener('click', e => {
     position >= DREAMS.length - 1? position = 0: position += 1;
     createDream(DREAMS[position]);
   });
+}
+
+/* lorsqu'un joueur choisit un reve */
+export function onChooseDream(event) {
+  event.preventDefault();
+  let form = event.target;
+  console.log(form);
+
+  // add player dream info to Party
+
+  form.style.display = "none";
 }

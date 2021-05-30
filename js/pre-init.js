@@ -10,6 +10,7 @@ import {
   onClickPlayerSelectOption,
   onClickStartButton,
   onChangeDream,
+  onChooseDream,
 
 } from './event-handlers';
 
@@ -20,7 +21,7 @@ import {
   let smallDealInput = document.querySelector('.js-small-deal-setup__input');
   smallDealInput.addEventListener('change', onChangeSmallDealAmt);
 
-  let playerSelectOptions = document.getElementsByClassName("js-player-select__option");
+  let playerSelectOptions = document.querySelectorAll(".js-player-select__option");
   for (let i = 0; i < playerSelectOptions.length; i++) {
     let option = playerSelectOptions[i];
     option.addEventListener("click", onClickPlayerSelectOption);
@@ -28,6 +29,11 @@ import {
 
   let gameSetupForm = document.querySelector('.js-game-setup-form');
   gameSetupForm.addEventListener('submit', onClickStartButton);
+
+  let chooseDreamForms = document.querySelectorAll('.js-choose-dream-form');
+  for (let i = 0; i < chooseDreamForms.length; i++) {
+    chooseDreamForms[i].addEventListener('submit', onChooseDream);
+  }
 
   // inserer le reve initial dans le html
   createDream(DREAMS[0]);
