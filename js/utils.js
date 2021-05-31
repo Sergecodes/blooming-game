@@ -1,6 +1,6 @@
 /** Contient les constantes importantes et fonctions d'utilites */
 
-import Profession from './classes/Profession';
+import { Profession } from './classes/Card';
 import Asset from './classes/Asset';
 
 const PROFESSIONS_AND_SALARIES = {

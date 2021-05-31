@@ -7,6 +7,7 @@
 
 	<link rel="stylesheet" href="css/bootstrap5-beta3.min.css">
 	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/bootstrap5-beta3.bundle.min.js"></script>
 </head>
 <body class="page">
 	<div class="setup-forms-wrapper js-setup-forms-wrapper">
@@ -227,125 +228,114 @@
 				<td rowspan="5" colspan="9" class="rr-table-wrapper">
 					<table class="rr-table" border="2">
 						<tr class="rr-row">
-							<td class="start-here-cell">
+							<td colspan="2" class="start-here-cell" data-cellNum="0">
 								Start Here
 								<!-- extra items (may be an arrow, etc..) -->
 								<div class="token-space"></div>
 							</td>
-							<td class="rr-cell">
-								Opportunity
-								<div class="token-space"></div>
-							</td>
-							<td class="rr-cell">
+							<!-- default bootstrap tooltip position is "top" -->
+							<td class="rr-cell charity-space" data-cellNum="1" data-isRRCell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Charity space">
 								Charity
 								<div class="token-space"></div>
 							</td>
-							<td class="rr-cell">
-								Foo
+							<td class="rr-cell baby-space" data-bs-toggle="tooltip" data-bs-placement="top" title="Baby space">
+								Baby
 								<div class="token-space"></div>
 						</td>
-							<td class="rr-cell">
-								Opportunity
+							<td class="rr-cell market-space" data-bs-toggle="tooltip" data-bs-placement="top" title="Market space">
+								Market
 								<div class="token-space"></div>
 							</td>
-							<td class="rr-cell">
-								Bar
+							<td class="rr-cell paycheck-space" data-bs-toggle="tooltip" data-bs-placement="top" title="Paycheck space">
+								Paycheck
 								<div class="token-space"></div>
 							</td>
-							<td class="rr-cell">
-								Liability
+							<td class="rr-cell doodad-space" data-bs-toggle="tooltip" data-bs-placement="top" title="Doodad space">
+								Doodad
 								<div class="token-space"></div>
 							</td>
-							<td class="rr-cell">
-								Opportunity
-								<div class="token-space"></div>
-							</td>
-							<td class="rr-cell">
+							<td colspan="2" class="rr-cell opportunity-space" data-bs-toggle="tooltip" data-bs-placement="top" title="Opportunity space">
 								Opportunity
 								<div class="token-space"></div>
 							</td>
 						</tr>
 						<tr class="rr-row">
-							<td class="rr-cell">
-								Offer
+							<td class="rr-cell paycheck-space" data-bs-toggle="tooltip" data-bs-placement="right" title="Paycheck space">
+								Paycheck
 								<div class="token-space"></div>
 							</td>
-							<td colspan="7" class="player-list">
-								<tr>
-									<td>Player 1</td>
-									<td>Player 2</td>
-									<td>Player 3</td>
-								</tr>
+							<td colspan="7" class="player-list-wrapper">
+								<table class="player-list-table">
+									<tr class="player-list-row">
+										<td class="player-list-row__cell">Player 1</td>
+										<td class="player-list-row__cell">Player 2</td>
+										<td class="player-list-row__cell">Player 3</td>
+									</tr>
+								</table>
 							</td>
-							<td class="rr-cell">
-								Offer
+							<td class="rr-cell baby-space" data-bs-toggle="tooltip" data-bs-placement="left" title="Baby space">
+								Baby
 								<div class="token-space"></div>
 							</td>
 						</tr>
 						<tr class="rr-row">
-							<td class="rr-cell">Opportunity</td>
+							<td class="rr-cell opportunity-space" data-bs-toggle="tooltip" data-bs-placement="right" title="Opportunity space">
+								Opportunity
+							</td>
 							<td rowspan="3" colspan="7" class="player-info">
 								<!-- game info box or div -->
 							</td>
-							<td class="rr-cell">
+							<td class="rr-cell doodad-space" data-bs-toggle="tooltip" data-bs-placement="left" title="Doodad space">
+								Doodad
+								<div class="token-space"></div>
+							</td>
+						</tr>
+						<tr class="rr-row">
+							<td class="rr-cell market-space" data-bs-toggle="tooltip" data-bs-placement="right" title="Market space">
+								Market
+								<div class="token-space"></div>
+							</td>
+							<td class="rr-cell opportunity-space" data-bs-toggle="tooltip" data-bs-placement="left" title="Opportunity space">
 								Opportunity
 								<div class="token-space"></div>
 							</td>
 						</tr>
 						<tr class="rr-row">
-							<td class="rr-cell">
-								Liability
+							<td class="rr-cell downsized-space" data-bs-toggle="tooltip" data-bs-placement="right" title="Downsized space">
+								Downsized
 								<div class="token-space"></div>
 							</td>
-							<td class="rr-cell">
-								Liability
-								<div class="token-space"></div>
-							</td>
-						</tr>
-						<tr class="rr-row">
-							<td class="rr-cell">
-								Child
-								<div class="token-space"></div>
-							</td>
-							<td class="rr-cell">
-								Child
+							<td class="rr-cell paycheck-space" data-bs-toggle="tooltip" data-bs-placement="left" title="Baby space">
+								Paycheck
 								<div class="token-space"></div>
 							</td>
 						</tr>
 						<tr class="rr-row">
-							<td class="rr-cell">
-								Child
-								<div class="token-space"></div>
-							</td>
-							<td class="rr-cell">
+							<td colspan="2" class="rr-cell opportunity-space" data-bs-toggle="tooltip" data-bs-placement="top" title="Opportunity space">
 								Opportunity
 								<div class="token-space"></div>
 							</td>
-							<td class="rr-cell">
+							<td class="rr-cell charity-space" data-bs-toggle="tooltip" data-bs-placement="top" title="Charity space">
 								Charity
 								<div class="token-space"></div>
 							</td>
-							<td class="rr-cell">
-								Liability
+							<td class="rr-cell doodad-space" data-bs-toggle="tooltip" data-bs-placement="top" title="Doodad space">
+								Doodad
 								<div class="token-space"></div>
 							</td>
-							<td class="rr-cell">
-								Opportunity
+							<td class="rr-cell paycheck-space" data-bs-toggle="tooltip" data-bs-placement="top" title="Paycheck space">
+								Paycheck
 								<div class="token-space"></div>
 							</td>
-							<td class="rr-cell">
-								Foo
+							<td class="rr-cell baby-space" data-bs-toggle="tooltip" data-bs-placement="top" title="Baby space">
+								Baby
 								<div class="token-space"></div>
 							</td>
-							<td class="rr-cell">
-								Bar
+							<td class="rr-cell market-space" data-bs-toggle="tooltip" data-bs-placement="top" title="Market space">
+								Market
 								<div class="token-space"></div>
 							</td>
-							<td class="rr-cell">
-								Liability
-								<div class="token-space"></div>
-							</td>
-							<td class="rr-cell">
+							<td colspan="2" class="rr-cell opportunity-space" data-bs-toggle="tooltip" data-bs-placement="top" title="Opportunity space">
 								Opportunity
 								<div class="token-space"></div>
 							</td>

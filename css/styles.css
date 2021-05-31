@@ -99,6 +99,7 @@
 	border-radius: 8px;
 	border: 2px solid purple;
 	width: 1.5rem;
+	text-align: center;
 }
 
 .rr-table-wrapper {
@@ -115,21 +116,64 @@
 .rr-cell {
 	border-radius: 8px;
 	border: 2px solid purple;
-	width: 1.5rem;
+	color: white;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .start-here-cell {
 	border-radius: 8px;
-	width: 1.5rem;
 	border: 2px solid blue;
-
 }
 
-.player-list {
+.player-list-table {
+	width: 100%;
+}
+
+.player-list-row {
 	display: flex;
 	justify-content: space-around;
 }
 
+.player-list-row__cell {
+
+}
+
+/* style to set on the cell of the active player */
+.active-player {
+
+}
+
+/* styles for spaces on the game */
+.opportunity-space {
+	background-color: rgb(67, 160, 71);
+}
+
+.charity-space {
+	background-color: rgb(0, 193, 218);
+}
+
+.doodad-space {
+	background-color: #83A296;
+}
+
+.market-space {
+	background-color: #0277BD;
+}
+
+.baby-space {
+	background-color: #FFB74D;
+}
+
+.paycheck-space {
+	background-color: #FDD835;
+}
+
+.downsized-space {
+	background-color: #D32F2F;
+}
 /* section {
 	width: 300px;
 	text-align: center;

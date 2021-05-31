@@ -1,4 +1,4 @@
-import Profession from './classes/Profession';
+import { Profession } from './classes/Card';
 import {
   generateAssets,
   createDream,
@@ -11,6 +11,7 @@ import {
   onClickStartButton,
   onChangeDream,
   onChooseDream,
+
 
 } from './event-handlers';
 
@@ -39,5 +40,11 @@ import {
   createDream(DREAMS[0]);
   // ajouter l'evenement a effectuer lorsqu'un joueur parcour les reves
   onChangeDream();
+
+  // initialiser tous les tooltips de bootstrap
+  let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  });
 
 })();
