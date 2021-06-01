@@ -88,18 +88,23 @@
 .game-board {
 	display: none;
 	margin: 8px;
+	width: 70%;
 }
 
 .board-title {
 	text-align: center;
-
 }
 
 .ft-cell {
-	border-radius: 8px;
 	border: 2px solid purple;
-	width: 1.5rem;
 	text-align: center;
+	background-color: rgb(85, 190, 85);
+	color: white;
+	vertical-align: top;
+}
+
+.ft-cell__description {
+	font-size: 10px;
 }
 
 .rr-table-wrapper {
@@ -114,18 +119,18 @@
 }
 
 .rr-cell {
-	border-radius: 8px;
 	border: 2px solid purple;
 	color: white;
 	text-align: center;
+	vertical-align: bottom;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
 .start-here-cell {
-	border-radius: 8px;
 	border: 2px solid blue;
+
 }
 
 .player-list-table {
@@ -146,7 +151,26 @@
 
 }
 
+
 /* styles for spaces on the game */
+.cashflow-space {
+	background-color: yellow;
+	color: gray;
+}
+
+.dream-space {
+	background-color: #AE63AE;
+}
+
+.divorce-space {
+	background-color: #D32F2F;
+}
+
+.lawsuit-space,
+.tax-audit-space {
+	background-color: #F24B5B;
+}
+
 .opportunity-space {
 	background-color: rgb(67, 160, 71);
 }
