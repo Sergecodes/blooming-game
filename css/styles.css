@@ -84,6 +84,9 @@
 		border-left: 30px solid blueviolet;
     float: right;
 }
+.game-board-container {
+	display: flex;
+}
 
 .game-board {
 	display: none;
@@ -198,17 +201,14 @@
 .downsized-space {
 	background-color: #D32F2F;
 }
-/* section {
-	width: 300px;
+
+.player-sheet {
+	display: none;
+	border: 1px solid;
+	margin: 10px 5px;
+	padding: 20px;
+}
+
+.player-sheet-title {
 	text-align: center;
-	border: 1px solid black;
-	border-radius: 12px/10px;
-	margin: 150px;
-	padding: 10px;
 }
-p{
-	text-align: justify;
-}
-h2{
-	color:rgb(90,70,10);
-} */

@@ -80,6 +80,7 @@ export function onClickStartButton(event) {
   let page = document.querySelector('.page');
   page.style.background = 'aliceblue';
 
+  document.querySelector('.player-sheet').style.display = 'block';
   /*
   // let party = new Party(
   //   obj.maxNumOfChildren,
