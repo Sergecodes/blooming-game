@@ -15,7 +15,12 @@ export default class Party {
     this.players = [];
     this.assets = [];
     this.expenses = [];
-    this.professions = []; 
+    this.professions = [];
+  }
+
+  /* retourne le nombre de joueurs de la partie */
+  get numPlayers() {
+    return this.players.length;
   }
 
   // get remainingTime() {

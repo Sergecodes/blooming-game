@@ -1,17 +1,20 @@
 import Party from "./classes/Party";
 import Player from "./classes/Player";
+import { Profession } from './classes/Card';
+import { DREAMS } from './classes/Dream';
 import {
   SAVINGS_AMT,
-  DREAMS,
   createDream,
   getPartyConstructorVals,
-  randomProfession
+  getPartyPlayers,
+
 } from "./utils";
 
 
 /* evoquee lorsque la valeur du montant max de small deal est modifiee */
-export function onChangeSmallDealAmt(event) {
-  const newMinBigDealAmt = 10 * parseInt(event.target.value);
+export function onChangeMaxSmallDealAmt(event) {
+  // le montant minimum d'un big deal est 1.5 fois le montant max d'un small deal
+  const newMinBigDealAmt = 1.5 * parseInt(event.target.value);
   let bigDealInput = document.querySelector(".js-big-deal-setup__input");
   bigDealInput.min = newMinBigDealAmt;
   bigDealInput.value = newMinBigDealAmt;
@@ -46,7 +49,7 @@ export function onClickPlayerSelectOption(event) {
 }
 
 /* evoquee lorsque le bouton Commencer est clicke' (quand le formulaire est soumi) */
-export function onClickStartButton(event) {
+export function onCompleteInitialSetup(event) {
   let form = document.forms["gameSetup"];
   for (const input of form.elements) {
     if (input.value === "") {
@@ -58,28 +61,33 @@ export function onClickStartButton(event) {
 
   // pour ne pas soumettre le formulaire et recharger la page
   event.preventDefault();
-  let setupWrapper = document.querySelector(".js-setup-forms-wrapper");
+
+  const setupWrapper = document.querySelector(".js-setup-forms-wrapper");
   setupWrapper.style.display = "none";
+
+  const chooseDreamWrapper = document.querySelector(".js-choose-dream-wrapper");
+  chooseDreamWrapper.style.display = "flex";
+  chooseDreamWrapper.style.margin = "5px";
+
+  const playersSetup = document.querySelector(".js-players-table").children;
+  for (let i = 0; i < playersSetup.length; i++) {
+    const playersSetupStyle = window.getComputedStyle(playersSetup[i]);
+    // si ce setup est visible alors le joueur est "actif"
+    // mets son "choose-dream" a display: block (sache qu'il ne sera plus un "flex-item")
+    if (playersSetupStyle.display !== 'none') {
+      const playerChooseDreamForm = document.querySelector(`.js-choose-dream--p${i+1}`);
+      playerChooseDreamForm.style.display = 'block';
+    }
+  }
+
+  const startButton = document.querySelector('.js-start-button');
+  startButton.style.display = 'block';
+
+  // TODO: save current information to Party object.
+  // remove assets select menu from html right ? yep... ask Omer..
 
   // Party(maxNumOfChildren, maxSmallDealAmt, minLargeDealAmt, loanInterestPercent, duration, startTime)
   // obj: { maxNumOfChildren, maxSmallDealAmt, minBigDealAmt, loanInterestPercent, duration, startTime };
-  let players = [];
-  const obj = getPartyConstructorVals();
-  const playerInputs = document.querySelectorAll(".js-players-table__input");
-  for (const input of playerInputs) {
-    let profession = randomProfession();
-    // Player(name, profession, monthlyCashFlow)
-    players.push(new Player(input.value, profession, profession.monthlySalary));
-  }
-
-  // TODO: loop through players and display each choose dream form
-  //...
-
-  let gameBoard = document.querySelector('.js-game-board');
-  gameBoard.style.display = 'block';
-  let page = document.querySelector('.page');
-  page.style.background = 'aliceblue';
-
   /*
   // let party = new Party(
   //   obj.maxNumOfChildren,
@@ -98,24 +106,59 @@ export function onClickStartButton(event) {
 /* ajouter l'evenement a effectuer lorsqu'un joueur choisir un autre reve (en parcourant les reves) */
 export function onChangeDream() {
   let position = 0;
-  document.querySelector(".js-choose-dream-form__arrow--left").addEventListener('click', e => {
-    position <= 0 ? position = DREAMS.length - 1: position -= 1;
-    createDream(DREAMS[position]);
-  });
+  let leftArrows = document.querySelectorAll(".js-choose-dream__arrow--left");
+  for (let leftArrow of leftArrows) {
+    leftArrow.addEventListener('click', e => {
+      const playerNum = e.target.dataset.playerNum;
+      position <= 0 ? position = DREAMS.length - 1 : position -= 1;
+      createDream(DREAMS[position], parseInt(playerNum));
+    });
+  }
 
-  document.querySelector(".js-choose-dream-form__arrow--right").addEventListener('click', e => {
-    position >= DREAMS.length - 1? position = 0: position += 1;
-    createDream(DREAMS[position]);
-  });
+  let rightArrows = document.querySelectorAll(".js-choose-dream__arrow--right");
+  for (let rightArrow of rightArrows) {
+    rightArrow.addEventListener('click', e => {
+      const playerNum = e.target.dataset.playerNum;
+      position >= DREAMS.length - 1 ? position = 0 : position += 1;
+      createDream(DREAMS[position], parseInt(playerNum));
+    });
+  }
 }
 
-/* lorsqu'un joueur choisit un reve */
-export function onChooseDream(event) {
-  event.preventDefault();
-  let form = event.target;
-  console.log(form);
+/* lorsqu'un joueur appuie sur le bouton "Commencer" */
+export function onStartGame(event) {
+  let players = [];
 
-  // add player dream info to Party
+  // TODO: insert player info into Party...
+  const chooseDreamWrapper = document.querySelector(".js-choose-dream-wrapper");
+  chooseDreamWrapper.style.display = 'none';
+
+  let startButton = document.querySelector('.js-start-button');
+  startButton.style.display = 'none';
+  let gameBoard = document.querySelector('.js-game-board');
+  gameBoard.style.display = 'block';
+  let page = document.querySelector('.page');
+  page.style.background = 'aliceblue';
+
+/*
+  for (const input of playerInputs) {
+    let i = 1;
+    // obtenir le div principal du input du joueur
+    const playerDiv = input.parentElement.parentElement;
+
+    const playerDivStyle = window.getComputedStyle(playerDiv);
+    if (playerDivStyle.display !== 'none') {
+      const playerChooseDreamForm = document.querySelector(`.js-choose-dream--p${i}`)
+      playerChooseDreamForm.style.display = 'block';
+
+      let profession = Profession.getRandomProfession()();
+      // player: Player(name, profession, monthlyCashFlow, dream)
+      players.push(new Player(input.value, profession, profession.monthlySalary));
+    }
+
+    i++;
+  }
 
   form.style.display = "none";
+*/
 }

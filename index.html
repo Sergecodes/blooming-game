@@ -97,66 +97,81 @@
 		    <p class="h3">Atouts</p>
 		    <div class="assets-list js-assets-list">
 					<!-- les atouts sont dynamiquement generes(par le js) -->
-
 		    </div>
 		  </div>
 		  <div class="d-grid gap-2 p-2">
-				<input type="submit" class="btn btn-primary start-game-button js-start-game-button" value="Commencer">
+				<input type="submit" class="btn btn-primary start-game-button js-start-game-button" value="OK">
 		    <!-- <button type="submit" class="btn btn-primary start-game-button js-start-game-button">Commencer</button> -->
 		  </div>
 		</form>
 	</div>
 
-	<div class="choose-dream-forms js-choose-dream-forms">
-		<form class="choose-dream-form choose-dream-form--p1 js-choose-dream-form">
+	<div class="choose-dream-wrapper js-choose-dream-wrapper">
+		<div class="choose-dream choose-dream--p1 js-choose-dream--p1">
 			<p class="text-muted h5">Joeur 1</p>
 			<h1>Choisir votre rêve</h1>
 
 			<div class="dream">
-				<div class="choose-dream-form__arrow choose-dream-form__arrow--left js-choose-dream-form__arrow--left"></div>
+				<div class="choose-dream__arrow choose-dream__arrow--left js-choose-dream__arrow--left" data-player-num="1">
+				</div>
 				<!-- ce bloc sera rempli par le js -->
-				<div class="dream-block">
+				<div class="dream-info js-dream-info js-dream-info--p1">
 					<!-- <p class="dream-title">Lorem ipsum dolor sit amet</p>
 					<p class="dream-description">Stinctio minima, doloremque labafadsf inkl apil na ianegofi eiaf</p>  -->
 				</div>
-				<div class="choose-dream-form__arrow choose-dream-form__arrow--right js-choose-dream-form__arrow--right"></div>
+				<div class="choose-dream__arrow choose-dream__arrow--right js-choose-dream__arrow--right" data-player-num="1">
+				</div>
 			</div>
-			<input class="btn btn-primary w-50 mb-2" type="submit" value="Choisir">
-			<!-- <button class="btn btn-primary">Choisir</button> -->
-		</form>
-		<form class="choose-dream-form choose-dream-form--p2 js-choose-dream-form">
+			<div class="player-info js-player-info--p1">
+				<p>Vous etes un <span class="player-info__job">avocat</span>.</p>
+				<p>Votre salaire est <span class="player-info__salary">800000</span>.</p>
+				<p>Votre cash initial est <span class="player-info__cash">10000</span>.</p>
+			</div>
+		</div>
+		<div class="choose-dream choose-dream--p2 js-choose-dream--p2">
 			<p class="text-muted h5">Joeur 2</p>
 			<h1>Choisir votre rêve</h1>
 
 			<div class="dream">
-				<div class="choose-dream-form__arrow choose-dream-form__arrow--left js-choose-dream-form__arrow--left"></div>
+				<div class="choose-dream__arrow choose-dream__arrow--left js-choose-dream__arrow--left" data-player-num="2">
+				</div>
 				<!-- ce bloc sera rempli par le js -->
-				<div class="dream-block">
+				<div class="dream-info js-dream-info js-dream-info--p2">
 					<!-- <p class="dream-title">Lorem ipsum dolor sit amet</p>
 					<p class="dream-description">Stinctio minima, doloremque labafadsf inkl apil na ianegofi eiaf</p>  -->
 				</div>
-				<div class="choose-dream-form__arrow choose-dream-form__arrow--right js-choose-dream-form__arrow--right"></div>
+				<div class="choose-dream__arrow choose-dream__arrow--right js-choose-dream__arrow--right" data-player-num="2">
+				</div>
 			</div>
-			<input class="btn btn-primary w-50 mb-2" type="submit" value="Choisir">
-			<!-- <button class="btn btn-primary">Choisir</button> -->
-		</form>
-		<form class="choose-dream-form choose-dream-form--p3 js-choose-dream-form">
+			<div class="player-info js-player-info--p2">
+				<p>Vous etes un <span class="player-info__job">avocat</span>.</p>
+				<p>Votre salaire est <span class="player-info__salary">800000</span>.</p>
+				<p>Votre cash initial est <span class="player-info__cash">10000</span>.</p>
+			</div>
+		</div>
+		<div class="choose-dream choose-dream--p3 js-choose-dream--p3">
 			<p class="text-muted h5">Joeur 3</p>
 			<h1>Choisir votre rêve</h1>
 
 			<div class="dream">
-				<div class="choose-dream-form__arrow choose-dream-form__arrow--left js-choose-dream-form__arrow--left"></div>
+				<div class="choose-dream__arrow choose-dream__arrow--left js-choose-dream__arrow--left" data-player-num="3">
+				</div>
 				<!-- ce bloc sera rempli par le js -->
-				<div class="dream-block">
+				<div class="dream-info js-dream-info js-dream-info--p3">
 					<!-- <p class="dream-title">Lorem ipsum dolor sit amet</p>
 					<p class="dream-description">Stinctio minima, doloremque labafadsf inkl apil na ianegofi eiaf</p>  -->
 				</div>
-				<div class="choose-dream-form__arrow choose-dream-form__arrow--right js-choose-dream-form__arrow--right"></div>
+				<div class="choose-dream__arrow choose-dream__arrow--right js-choose-dream__arrow--right" data-player-num="3">
+				</div>
 			</div>
-			<input class="btn btn-primary w-50 mb-2" type="submit" value="Choisir">
-			<!-- <button class="btn btn-primary">Choisir</button> -->
-		</form>
+			<div class="player-info js-player-info--p3">
+				<p>Vous etes un <span class="player-info__job">avocat</span>.</p>
+				<p>Votre salaire est <span class="player-info__salary">800000</span>.</p>
+				<p>Votre cash initial est <span class="player-info__cash">10000</span>.</p>
+			</div>
+		</div>
 	</div>
+	<button class="btn-primary w-50 p-2 mx-auto mt-3 start-button js-start-button">Commencer</button>
 
 	<!-- 11 horizontal cells & 8 vertical cells for fasttrack -->
 	<!-- 7 horizontal cells & 6 vertical cells for rat race -->

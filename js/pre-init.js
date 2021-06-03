@@ -1,17 +1,15 @@
-import { Profession } from './classes/Card';
+import { DREAMS } from './classes/Dream';
 import {
   generateAssets,
   createDream,
-  DREAMS,
 
 } from './utils';
 import {
-  onChangeSmallDealAmt,
+  onChangeMaxSmallDealAmt,
   onClickPlayerSelectOption,
-  onClickStartButton,
+  onCompleteInitialSetup,
   onChangeDream,
-  onChooseDream,
-
+  onStartGame,
 
 } from './event-handlers';
 
@@ -20,28 +18,28 @@ import {
   generateAssets();
 
   let smallDealInput = document.querySelector('.js-small-deal-setup__input');
-  smallDealInput.addEventListener('change', onChangeSmallDealAmt);
+  smallDealInput.addEventListener('change', onChangeMaxSmallDealAmt);
 
   let playerSelectOptions = document.querySelectorAll(".js-player-select__option");
-  for (let i = 0; i < playerSelectOptions.length; i++) {
-    let option = playerSelectOptions[i];
+  for (let option of playerSelectOptions) {
     option.addEventListener("click", onClickPlayerSelectOption);
   }
 
   let gameSetupForm = document.querySelector('.js-game-setup-form');
-  gameSetupForm.addEventListener('submit', onClickStartButton);
+  gameSetupForm.addEventListener('submit', onCompleteInitialSetup);
 
-  let chooseDreamForms = document.querySelectorAll('.js-choose-dream-form');
-  for (let i = 0; i < chooseDreamForms.length; i++) {
-    chooseDreamForms[i].addEventListener('submit', onChooseDream);
-  }
+  let startButton = document.querySelector('.js-start-button');
+  startButton.addEventListener('click', onStartGame);
 
-  // inserer le reve initial dans le html
-  createDream(DREAMS[0]);
+  // inserer les reves initiales dans le html
+  createDream(DREAMS[0], 1);  // player 1
+  createDream(DREAMS[0], 2);  // player 2
+  createDream(DREAMS[0], 3);  // player 3
+
   // ajouter l'evenement a effectuer lorsqu'un joueur parcour les reves
   onChangeDream();
 
-  // initialiser tous les tooltips de bootstrap
+  // initialiser tous les tooltips bootstrap de la page
   let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
   let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl)

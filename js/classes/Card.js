@@ -19,6 +19,16 @@ export class Opportunity extends Card {
   }
 }
 
+const SMALL_DEALS = [
+  // TODO: set small deal amount based on minimum small deal amount which has to be in party...
+  new Opportunity('small', 5000, )
+
+];
+
+const BIG_DEALS = [
+
+];
+
 export class Market extends Card {
   constructor(asset) {
     super("market");
@@ -42,7 +52,21 @@ export class Profession extends Card {
     this.name = name;
     this.monthlySalary = monthlySalary;
   }
+
+  /* retourne un metier aleatoire depuis la liste des metiers */
+  static getRandomProfession() {
+    let n = PROFESSIONS.length;
+    return PROFESSIONS[Math.floor(Math.random() * n)];
+  }
 }
+
+export const PROFESSIONS = [
+  new Profession('Docteur', 900000),
+  new Profession('Ingenieur', 800000),
+  new Profession('Enseignant', 300000),
+  new Profession('Policier', 100000),
+  new Profession('Infirmier', 90000),
+];
 
 export class Congratulations extends Card {
   constructor() {
