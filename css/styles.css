@@ -40,15 +40,16 @@
   	display: none;
 }
 
-.choose-dream-forms {
+.start-game-form {
 	display: none;
 }
 
-.choose-dream-form {
+.choose-dream {
+		display: none;
     text-align: center;
     border: 2px groove black;
     margin:0 auto;
-    width: 30em;
+    /* width: 30em; */
     border-radius: 10px;
     background-color: rgb(247, 241, 234);
 }
@@ -59,11 +60,11 @@
 		justify-content: space-between;
 }
 
-.dream-block {
+.dream-info {
     margin: 10px 10%;
 }
 
-.choose-dream-form__arrow {
+.choose-dream__arrow {
 		width: 0;
 		height: 0;
 		border-top: 20px solid transparent;
@@ -71,21 +72,30 @@
 		align-self: center;
 }
 
-.choose-dream-form__arrow:hover {
+.choose-dream__arrow:hover {
 	cursor: pointer;
 }
 
-.choose-dream-form__arrow--left {
+.choose-dream__arrow--left {
 		border-right: 30px solid blueviolet;
     float: left;
 }
 
-.choose-dream-form__arrow--right{
+.choose-dream__arrow--right{
 		border-left: 30px solid blueviolet;
     float: right;
 }
 .game-board-container {
 	display: flex;
+}
+
+.player-info {
+	text-align: justify;
+	margin-left: 5px;
+}
+
+.start-button {
+	display: none;
 }
 
 .game-board {
@@ -146,12 +156,15 @@
 }
 
 .player-list-row__cell {
-
+	border: 2px solid saddlebrown;
+	color: #484343;
+	padding-left: 7px;
+	padding-right: 7px;
 }
 
 /* style to set on the cell of the active player */
 .active-player {
-
+	background-color: #97994E;
 }
 
 
