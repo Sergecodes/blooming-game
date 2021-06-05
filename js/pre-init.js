@@ -1,6 +1,6 @@
 import { DREAMS } from './classes/Dream';
 import {
-  generateAssets,
+  // generateAssets,
   createDream,
 
 } from './utils';
@@ -15,7 +15,7 @@ import {
 
 
 (function () {
-  generateAssets();
+  // generateAssets();
 
   let smallDealInput = document.querySelector('.js-small-deal-setup__input');
   smallDealInput.addEventListener('change', onChangeMaxSmallDealAmt);
@@ -38,6 +38,7 @@ import {
 
   // ajouter l'evenement a effectuer lorsqu'un joueur parcour les reves
   onChangeDream();
+
 
   // initialiser tous les tooltips bootstrap de la page
   let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));

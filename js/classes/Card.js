@@ -61,11 +61,11 @@ export class Profession extends Card {
 }
 
 export const PROFESSIONS = [
-  new Profession('Docteur', 900000),
-  new Profession('Ingenieur', 800000),
-  new Profession('Enseignant', 300000),
-  new Profession('Policier', 100000),
-  new Profession('Infirmier', 90000),
+  new Profession('Doctor', 900000),
+  new Profession('Engineer', 800000),
+  new Profession('Teacher', 300000),
+  new Profession('Police officer', 100000),
+  new Profession('Nurse', 90000),
 ];
 
 export class Congratulations extends Card {

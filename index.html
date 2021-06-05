@@ -14,7 +14,7 @@
 		<form class="player-setup-form">
 			<label>
 				<span>Nombre de joueurs:</span>
-				<select class="form-select mb-2 player-select">
+				<select class="form-select mb-1 player-select">
 					<option class="player-select__option js-player-select__option" value="1" selected>1</option>
 					<option class="player-select__option js-player-select__option" value="2">2</option>
 					<option class="player-select__option js-player-select__option" value="3">3</option>
@@ -23,85 +23,111 @@
 
 			<div class="players-table js-players-table">
 				<!-- juste le premier joueur est visible par defaut (les autres ont display: none) -->
-				<div class="mb-2 player-1-setup js-player-1-setup">
-					<div class="form-floating w-75">
+				<div class="mb-4 player-1-setup js-player-1-setup">
+					<div class="form-floating w-75 mb-1">
 						<input id="playerInput1" type="text" class="form-control js-players-table__input js-player-1-setup__input" value="Player 1" autofocus>
 						<label for="playerInput1">Nom du joueur</label>
 					</div>
+					<div class="w-75 mb-2">
+						<span>Couleur:</span>
+						<select class="form-select" name="player-1-color-select">
+							<option value="green" selected>Green</option>
+							<option value="red">Red</option>
+							<option value="yellow">Yellow</option>
+						</select>
+					</div>
+					<hr>
 				</div>
-				<div class="mb-2 player-2-setup js-player-2-setup">
-					<div class="form-floating w-75">
+				<div class="mb-4 player-2-setup js-player-2-setup">
+					<div class="form-floating w-75 mb-1">
 						<input id="playerInput2" type="text" class="form-control js-players-table__input js-player-2-setup__input" value="Player 2">
 						<label for="playerInput2">Nom du joueur</label>
 					</div>
+					<div class="w-75 mb-2">
+						<span>Couleur:</span>
+						<select class="form-select" name="player-2-color-select">
+							<option value="green" selected>Green</option>
+							<option value="red">Red</option>
+							<option value="yellow">Yellow</option>
+						</select>
+					</div>
+					<hr>
 				</div>
 				<div class="mb-1 player-3-setup js-player-3-setup">
-					<div class="form-floating w-75">
+					<div class="form-floating w-75 mb-1">
 						<input id="playerInput3" type="text" class="form-control js-players-table__input js-player-3-setup__input" value="Player 3">
 						<label for="playerInput3">Nom du joueur</label>
 					</div>
+					<div class="w-75 mb-2">
+						<span>Couleur:</span>
+						<select class="form-select" name="player-3-color-select">
+							<option value="green" selected>Green</option>
+							<option value="red">Red</option>
+							<option value="yellow">Yellow</option>
+						</select>
+					</div>
+					<hr>
 				</div>
 			</div>
 		</form>
 
 		<form class="game-setup-form js-game-setup-form" name="gameSetup">
-		  <div class="values-setup">
-		    <div class="mb-2 children-number-setup">
-		      <label class="form-label">
-		        Nombre max d'enfants par joueur
-		        <input type="number" min="2" class="form-control children-number-setup__input js-children-number-setup__input" required>
-		      </label>
-		    </div>
-		    <div class="mb-2 loan-interest-percent-setup">
-		      <label class="form-label">
-		        Pourcentage d'interet sur un pret
-		        <input type="number" min="0" max="100" class="form-control loan-interest-percent-setup__input js-loan-interest-percent-setup__input" required>
-		      </label>
-		    </div>
-		    <div class="mb-2 small-deal-setup">
-		      <label class="form-label">
-		        Montant maximum de Small Deal
-		        <input type="number" min="0" step="500" class="form-control small-deal-setup__input js-small-deal-setup__input" required>
-		      </label>
-		    </div>
-		    <div class="mb-2 big-deal-setup">
-		      <label class="form-label">
-		        Montant minimum de Big Deal
-		        <input type="number" min="0" step="500" class="form-control big-deal-setup__input js-big-deal-setup__input" required>
-		      </label>
-		    </div>
-		    <div class="mb-2 duration-setup">
-		      <span class="d-block">Duree de la partie</span>
-		      <div class="form-check form-check-inline">
-		        <label class="form-check-label">
-		          30mins
-		          <input class="form-check-input duration-setup__input js-duration-setup__input" name="duration" type="radio" value="30" checked>
-		        </label>
-		      </div>
-		      <div class="form-check form-check-inline">
-		        <label class="form-check-label">
-		          1hr
-		          <input class="form-check-input duration-setup__input js-duration-setup__input" name="duration" type="radio" value="60">
-		        </label>
-		      </div>
-		      <div class="form-check form-check-inline">
-		        <label class="form-check-label">
-		          2hrs
-		          <input class="form-check-input duration-setup__input js-duration-setup__input" name="duration" type="radio" value="120">
-		        </label>
-		      </div>
-		    </div>
+	    <div class="mb-2 children-number-setup">
+	      <label class="form-label">
+	        Nombre max d'enfants par joueur
+	        <input type="number" min="2" class="form-control children-number-setup__input js-children-number-setup__input" required>
+	      </label>
+	    </div>
+	    <div class="mb-2 loan-interest-percent-setup">
+	      <label class="form-label">
+	        Pourcentage d'interet sur un pret
+	        <input type="number" min="1" max="100" class="form-control loan-interest-percent-setup__input js-loan-interest-percent-setup__input" required>
+	      </label>
+	    </div>
+	    <div class="mb-2 small-deal-setup">
+	      <label class="form-label">
+	        Montant maximum de Small Deal
+	        <input type="number" min="0" step="500" class="form-control small-deal-setup__input js-small-deal-setup__input" required>
+	      </label>
+	    </div>
+	    <div class="mb-2 big-deal-setup">
+	      <label class="form-label">
+	        Montant minimum de Big Deal
+					<!-- step="250" because 1.5 * mindeal gives a multiple of 250.. -->
+	        <input type="number" min="0" step="250" class="form-control big-deal-setup__input js-big-deal-setup__input" required>
+	      </label>
+	    </div>
+	    <div class="mb-2 duration-setup">
+	      <span class="d-block">Duree de la partie</span>
+	      <div class="form-check form-check-inline">
+	        <label class="form-check-label">
+	          30mins
+	          <input class="form-check-input duration-setup__input js-duration-setup__input" name="duration" type="radio" value="30" checked>
+	        </label>
+	      </div>
+	      <div class="form-check form-check-inline">
+	        <label class="form-check-label">
+	          1hr
+	          <input class="form-check-input duration-setup__input js-duration-setup__input" name="duration" type="radio" value="60">
+	        </label>
+	      </div>
+	      <div class="form-check form-check-inline">
+	        <label class="form-check-label">
+	          2hrs
+	          <input class="form-check-input duration-setup__input js-duration-setup__input" name="duration" type="radio" value="120">
+	        </label>
+	      </div>
 		  </div>
 
-		  <div class="assets-setup">
+		  <!-- <div class="assets-setup">
 		    <p class="h3">Atouts</p>
 		    <div class="assets-list js-assets-list">
-					<!-- les atouts sont dynamiquement generes(par le js) -->
+					- les atouts sont dynamiquement generes(par le js) -
 		    </div>
-		  </div>
+		  </div> -->
+
 		  <div class="d-grid gap-2 p-2">
 				<input type="submit" class="btn btn-primary start-game-button js-start-game-button" value="OK">
-		    <!-- <button type="submit" class="btn btn-primary start-game-button js-start-game-button">Commencer</button> -->
 		  </div>
 		</form>
 	</div>
@@ -242,54 +268,54 @@
 				<td rowspan="5" colspan="9" class="rr-table-wrapper">
 					<table class="rr-table" border="2">
 						<tr class="rr-row">
-							<td colspan="2" class="start-here-cell">
-								Start Here
-								<!-- extra items (may be an arrow, etc..) -->
-								<div class="token-space"></div>
+							<td colspan="2" class="start-here-cell js-start-here-cell">
+								<span>Start Here</span>
+								<!-- cet espace sera rempli avec le js -->
+								<div class="token-space">
+
+								</div>
 							</td>
 							<!-- default bootstrap tooltip position is "top" -->
 							<td class="rr-cell charity-space" data-cell-number="1" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Charity space">
-								Charity
+								<span class="rr-cell__text">Charity</span>
 								<div class="token-space"></div>
 							</td>
 							<td class="rr-cell opportunity-space" data-cell-number="2" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Opportunity space">
-								Opportunity
+								<span class="rr-cell__text">Opportunity</span>
 								<div class="token-space"></div>
 							</td>
 							<td class="rr-cell market-space" data-cell-number="3" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Market space">
-								Market
+								<span class="rr-cell__text">Market</span>
 								<div class="token-space"></div>
 							</td>
 							<td class="rr-cell paycheck-space" data-cell-number="4" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Paycheck space">
-								Paycheck
+								<span class="rr-cell__text">Paycheck</span>
 								<div class="token-space"></div>
 							</td>
 							<td class="rr-cell doodad-space" data-cell-number="5" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Doodad space">
-								Doodad
+								<span class="rr-cell__text">Doodad</span>
 								<div class="token-space"></div>
 							</td>
 							<td colspan="2" class="rr-cell opportunity-space" data-cell-number="6" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Opportunity space">
-								Opportunity
+								<span class="rr-cell__text">Opportunity</span>
 								<div class="token-space"></div>
 							</td>
 						</tr>
 						<tr class="rr-row">
 							<td class="rr-cell paycheck-space" data-cell-number="21" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="right" title="Paycheck space">
-								Paycheck
+								<span class="rr-cell__text">Paycheck</span>
 								<div class="token-space"></div>
 							</td>
 							<td colspan="7" class="player-list-wrapper">
 								<table class="player-list-table">
-									<tr class="player-list-row">
+									<tr class="player-list-row js-player-list-row">
 										<!-- insert this with javascript using the number of players for the current party -->
-										<td class="player-list-row__cell">Player 1</td>
-										<td class="player-list-row__cell">Player 2</td>
-										<td class="player-list-row__cell">Player 3</td>
+										<!-- <td class="player-list-row__cell">Player x</td> -->
 									</tr>
 								</table>
 							</td>
 							<td class="rr-cell market-space" data-cell-number="7" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="left" title="Market space">
-								Market
+								<span class="rr-cell__text">Market</span>
 								<div class="token-space"></div>
 							</td>
 						</tr>
@@ -301,57 +327,57 @@
 								<!-- game info box or div -->
 							</td>
 							<td class="rr-cell doodad-space" data-cell-number="8" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="left" title="Doodad space">
-								Doodad
+								<span class="rr-cell__text">Doodad</span>
 								<div class="token-space"></div>
 							</td>
 						</tr>
 						<tr class="rr-row">
 							<td class="rr-cell market-space" data-cell-number="19" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="right" title="Market space">
-								Market
+								<span class="rr-cell__text">Market</span>
 								<div class="token-space"></div>
 							</td>
 							<td class="rr-cell opportunity-space" data-cell-number="9" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="left" title="Opportunity space">
-								Opportunity
+								<span class="rr-cell__text">Opportunity</span>
 								<div class="token-space"></div>
 							</td>
 						</tr>
 						<tr class="rr-row">
 							<td class="rr-cell downsized-space" data-cell-number="18" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="right" title="Downsized space">
-								Downsized
+								<span class="rr-cell__text">Downsized</span>
 								<div class="token-space"></div>
 							</td>
 							<td class="rr-cell paycheck-space" data-cell-number="10" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="left" title="Baby space">
-								Paycheck
+								<span class="rr-cell__text">Paycheck</span>
 								<div class="token-space"></div>
 							</td>
 						</tr>
 						<tr class="rr-row">
 							<td colspan="2" class="rr-cell opportunity-space" data-cell-number="17" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Opportunity space">
-								Opportunity
+								<span class="rr-cell__text">Opportunity</span>
 								<div class="token-space"></div>
 							</td>
 							<td class="rr-cell charity-space" data-cell-number="16" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Charity space">
-								Charity
+								<span class="rr-cell__text">Charity</span>
 								<div class="token-space"></div>
 							</td>
 							<td class="rr-cell doodad-space" data-cell-number="15" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Doodad space">
-								Doodad
+								<span class="rr-cell__text">Doodad</span>
 								<div class="token-space"></div>
 							</td>
 							<td class="rr-cell opportunity-space" data-cell-number="14" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Opportunity space">
-								Opportunity
+								<span class="rr-cell__text">Opportunity</span>
 								<div class="token-space"></div>
 							</td>
 							<td class="rr-cell baby-space" data-cell-number="13" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Baby space">
-								Baby
+								<span class="rr-cell__text">Baby</span>
 								<div class="token-space"></div>
 							</td>
 							<td class="rr-cell market-space" data-cell-number="12" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Market space">
-								Market
+								<span class="rr-cell__text">Market</span>
 								<div class="token-space"></div>
 							</td>
 							<td colspan="2" class="rr-cell opportunity-space" data-cell-number="11" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Opportunity space">
-								Opportunity
+								<span class="rr-cell__text">Opportunity</span>
 								<div class="token-space"></div>
 							</td>
 						</tr>

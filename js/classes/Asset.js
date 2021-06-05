@@ -9,3 +9,7 @@ export default class Asset {
     this.owner = owner;
   }
 }
+
+export const ASSETS = [
+
+];

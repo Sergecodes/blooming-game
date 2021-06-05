@@ -1,5 +1,4 @@
 
-
 /**
   * duration: game length in minutes, max is 2hours(120mins)
  */
@@ -11,11 +10,11 @@ export default class Party {
     this.loanInterestPercent = loanInterestPercent;
     this.duration = duration;
     this.startTime = startTime;
-    this.dreams = [];
+    this.dreams = [];  // les reves disponibles dans la partie
     this.players = [];
     this.assets = [];
-    this.expenses = [];
     this.professions = [];
+    // this.expenses = [];
   }
 
   /* retourne le nombre de joueurs de la partie */
@@ -26,5 +25,4 @@ export default class Party {
   // get remainingTime() {
   //
   // }
-
 }

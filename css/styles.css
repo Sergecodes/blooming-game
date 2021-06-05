@@ -2,6 +2,7 @@
 	background-image: url('../img/bg2.jpg');
 	background-repeat: no-repeat;
 	background-size: 100%;
+	user-select: none;
 }
 
 .setup-forms-wrapper {
@@ -132,14 +133,34 @@
 	border: 2px solid purple;
 	color: white;
 	text-align: center;
-	vertical-align: bottom;
+	vertical-align: top;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
+.rr-cell__text {
+	font-variant: all-small-caps;
+}
+
 .start-here-cell {
 	border: 2px solid blue;
+	color: blue;
+	text-align: center;
+	vertical-align: top;
+}
+
+.token-space {
+	display: flex;
+	height: 10px;
+}
+
+.player-token {
+
+	color: gold;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
 
 }
 
@@ -159,7 +180,7 @@
 	padding-right: 7px;
 }
 
-/* style to set on the cell of the active player */
+/* style to set on the cell of the active player's box */
 .active-player {
 	background-color: #97994E;
 }
@@ -211,17 +232,3 @@
 .downsized-space {
 	background-color: #D32F2F;
 }
-/* section {
-	width: 300px;
-	text-align: center;
-	border: 1px solid black;
-	border-radius: 12px/10px;
-	margin: 150px;
-	padding: 10px;
-}
-p{
-	text-align: justify;
-}
-h2{
-	color:rgb(90,70,10);
-} */
