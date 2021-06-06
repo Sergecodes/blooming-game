@@ -4,16 +4,16 @@ import { Profession, PROFESSIONS } from './classes/Card';
 import { DREAMS } from './classes/Dream';
 import { ASSETS } from './classes/Asset';
 import {
-  SAVINGS_AMT,
   createDream,
   getPartyConstructorVals,
   initialPlayersInfo,
   createPlayerMarkers,
   insertPlayerBoxes,
+  insertPlayerNamesInChooseDreamForm,
 
 } from "./utils";
 
-// objet "party" global
+// l'objet global "party"
 let party;
 
 /* evoquee lorsque la valeur du montant max de small deal est modifiee */
@@ -88,6 +88,8 @@ export function onCompleteInitialSetup(event) {
   const startButton = document.querySelector('.js-start-button');
   startButton.style.display = 'block';
 
+  insertPlayerNamesInChooseDreamForm();
+
   // Party(maxNumOfChildren, maxSmallDealAmt, minLargeDealAmt, loanInterestPercent, duration, startTime)
   // obj: { maxNumOfChildren, maxSmallDealAmt, minBigDealAmt, loanInterestPercent, duration, startTime };
   let obj = getPartyConstructorVals();
@@ -147,26 +149,9 @@ export function onStartGame(event) {
   page.style.background = '#E2ECF4';  // une version plus foncee que 'aliceblue'
   // page.style.background = 'aliceblue';
 
-
-/*
-  for (const input of playerInputs) {
-    let i = 1;
-    // obtenir le div principal du input du joueur
-    const playerDiv = input.parentElement.parentElement;
-
-    const playerDivStyle = getComputedStyle(playerDiv);
-    if (playerDivStyle.display !== 'none') {
-      const playerChooseDreamForm = document.querySelector(`.js-choose-dream--p${i}`)
-      playerChooseDreamForm.style.display = 'block';
-
-      let profession = Profession.getRandomProfession()();
-      // player: Player(name, profession, monthlyCashFlow, dream)
-      players.push(new Player(input.value, profession, profession.monthlySalary));
-    }
-
-    i++;
-  }
-
-  form.style.display = "none";
-*/
+  // initialiser tous les tooltips bootstrap de la page
+  let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  });
 }

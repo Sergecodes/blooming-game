@@ -1,5 +1,4 @@
-
-const SAVINGS_AMT = 10000;
+import { SAVINGS_AMT } from '../utils';
 
 export default class Player {
   // monthlyCashFlow is also the player's paycheck
@@ -7,7 +6,7 @@ export default class Player {
     this.name = name;
     this.playColour = playColour;
     this.profession = profession;
-    this.cash = profession.monthlySalary + SAVINGS_AMT;
+    this.cash = profession.salary + SAVINGS_AMT;
     this.dream = dream;
     this.assets = [];
     // this.expenses = [];

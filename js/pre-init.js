@@ -40,10 +40,4 @@ import {
   onChangeDream();
 
 
-  // initialiser tous les tooltips bootstrap de la page
-  let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-  let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl)
-  });
-
 })();

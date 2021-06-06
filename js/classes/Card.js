@@ -47,10 +47,10 @@ export class Doodad extends Card  {
 }
 
 export class Profession extends Card {
-  constructor(name, monthlySalary) {
+  constructor(name, salary) {
     super("profession");
     this.name = name;
-    this.monthlySalary = monthlySalary;
+    this.salary = salary;
   }
 
   /* retourne un metier aleatoire depuis la liste des metiers */

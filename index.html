@@ -134,7 +134,8 @@
 
 	<div class="choose-dream-wrapper js-choose-dream-wrapper">
 		<div class="choose-dream choose-dream--p1 js-choose-dream--p1">
-			<p class="text-muted h5">Joeur 1</p>
+			<!-- le nom du joueur sera insere avec le javascript -->
+			<p class="text-muted h5 js-choose-dream--p1__name"></p>
 			<h1>Choisir votre rêve</h1>
 
 			<div class="dream">
@@ -149,13 +150,13 @@
 				</div>
 			</div>
 			<div class="player-info js-player-info--p1">
-				<p>Vous etes un <span class="player-info__job">avocat</span>.</p>
-				<p>Votre salaire est <span class="player-info__salary">800000</span>.</p>
-				<p>Votre cash initial est <span class="player-info__cash">10000</span>.</p>
+				<p>Vous etes un <span class="js-player-info--p1__job"></span>.</p>
+				<p>Votre salaire est <span class="js-player-info--p1__salary"></span>.</p>
+				<p>Votre cash initial est <span class="js-player-info--p1__cash"></span>.</p>
 			</div>
 		</div>
 		<div class="choose-dream choose-dream--p2 js-choose-dream--p2">
-			<p class="text-muted h5">Joeur 2</p>
+			<p class="text-muted h5 js-choose-dream--p2__name"></p>
 			<h1>Choisir votre rêve</h1>
 
 			<div class="dream">
@@ -170,13 +171,13 @@
 				</div>
 			</div>
 			<div class="player-info js-player-info--p2">
-				<p>Vous etes un <span class="player-info__job">avocat</span>.</p>
-				<p>Votre salaire est <span class="player-info__salary">800000</span>.</p>
-				<p>Votre cash initial est <span class="player-info__cash">10000</span>.</p>
+				<p>Vous etes un <span class="js-player-info--p2__job"></span>.</p>
+				<p>Votre salaire est <span class="js-player-info--p2__salary"></span>.</p>
+				<p>Votre cash initial est <span class="js-player-info--p2__cash"></span>.</p>
 			</div>
 		</div>
 		<div class="choose-dream choose-dream--p3 js-choose-dream--p3">
-			<p class="text-muted h5">Joeur 3</p>
+			<p class="text-muted h5 js-choose-dream--p3__name"></p>
 			<h1>Choisir votre rêve</h1>
 
 			<div class="dream">
@@ -191,9 +192,9 @@
 				</div>
 			</div>
 			<div class="player-info js-player-info--p3">
-				<p>Vous etes un <span class="player-info__job">avocat</span>.</p>
-				<p>Votre salaire est <span class="player-info__salary">800000</span>.</p>
-				<p>Votre cash initial est <span class="player-info__cash">10000</span>.</p>
+				<p>Vous etes un <span class="js-player-info--p3__job"></span>.</p>
+				<p>Votre salaire est <span class="js-player-info--p3__salary"></span>.</p>
+				<p>Votre cash initial est <span class="js-player-info--p3__cash"></span>.</p>
 			</div>
 		</div>
 	</div>
@@ -271,40 +272,40 @@
 							<td colspan="2" class="start-here-cell js-start-here-cell">
 								<span>Start Here</span>
 								<!-- cet espace sera rempli avec le js -->
-								<div class="token-space">
+								<div class="token-space token-space--rr">
 
 								</div>
 							</td>
 							<!-- default bootstrap tooltip position is "top" -->
 							<td class="rr-cell charity-space" data-cell-number="1" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Charity space">
 								<span class="rr-cell__text">Charity</span>
-								<div class="token-space"></div>
+								<div class="token-space token-space--rr"></div>
 							</td>
 							<td class="rr-cell opportunity-space" data-cell-number="2" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Opportunity space">
 								<span class="rr-cell__text">Opportunity</span>
-								<div class="token-space"></div>
+								<div class="token-space token-space--rr"></div>
 							</td>
 							<td class="rr-cell market-space" data-cell-number="3" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Market space">
 								<span class="rr-cell__text">Market</span>
-								<div class="token-space"></div>
+								<div class="token-space token-space--rr"></div>
 							</td>
 							<td class="rr-cell paycheck-space" data-cell-number="4" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Paycheck space">
 								<span class="rr-cell__text">Paycheck</span>
-								<div class="token-space"></div>
+								<div class="token-space token-space--rr"></div>
 							</td>
 							<td class="rr-cell doodad-space" data-cell-number="5" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Doodad space">
 								<span class="rr-cell__text">Doodad</span>
-								<div class="token-space"></div>
+								<div class="token-space token-space--rr"></div>
 							</td>
 							<td colspan="2" class="rr-cell opportunity-space" data-cell-number="6" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Opportunity space">
 								<span class="rr-cell__text">Opportunity</span>
-								<div class="token-space"></div>
+								<div class="token-space token-space--rr"></div>
 							</td>
 						</tr>
 						<tr class="rr-row">
 							<td class="rr-cell paycheck-space" data-cell-number="21" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="right" title="Paycheck space">
 								<span class="rr-cell__text">Paycheck</span>
-								<div class="token-space"></div>
+								<div class="token-space token-space--rr"></div>
 							</td>
 							<td colspan="7" class="player-list-wrapper">
 								<table class="player-list-table">
@@ -316,7 +317,7 @@
 							</td>
 							<td class="rr-cell market-space" data-cell-number="7" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="left" title="Market space">
 								<span class="rr-cell__text">Market</span>
-								<div class="token-space"></div>
+								<div class="token-space token-space--rr"></div>
 							</td>
 						</tr>
 						<tr class="rr-row">
@@ -328,57 +329,57 @@
 							</td>
 							<td class="rr-cell doodad-space" data-cell-number="8" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="left" title="Doodad space">
 								<span class="rr-cell__text">Doodad</span>
-								<div class="token-space"></div>
+								<div class="token-space token-space--rr"></div>
 							</td>
 						</tr>
 						<tr class="rr-row">
 							<td class="rr-cell market-space" data-cell-number="19" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="right" title="Market space">
 								<span class="rr-cell__text">Market</span>
-								<div class="token-space"></div>
+								<div class="token-space token-space--rr"></div>
 							</td>
 							<td class="rr-cell opportunity-space" data-cell-number="9" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="left" title="Opportunity space">
 								<span class="rr-cell__text">Opportunity</span>
-								<div class="token-space"></div>
+								<div class="token-space token-space--rr"></div>
 							</td>
 						</tr>
 						<tr class="rr-row">
 							<td class="rr-cell downsized-space" data-cell-number="18" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="right" title="Downsized space">
 								<span class="rr-cell__text">Downsized</span>
-								<div class="token-space"></div>
+								<div class="token-space token-space--rr"></div>
 							</td>
 							<td class="rr-cell paycheck-space" data-cell-number="10" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="left" title="Baby space">
 								<span class="rr-cell__text">Paycheck</span>
-								<div class="token-space"></div>
+								<div class="token-space token-space--rr"></div>
 							</td>
 						</tr>
 						<tr class="rr-row">
 							<td colspan="2" class="rr-cell opportunity-space" data-cell-number="17" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Opportunity space">
 								<span class="rr-cell__text">Opportunity</span>
-								<div class="token-space"></div>
+								<div class="token-space token-space--rr"></div>
 							</td>
 							<td class="rr-cell charity-space" data-cell-number="16" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Charity space">
 								<span class="rr-cell__text">Charity</span>
-								<div class="token-space"></div>
+								<div class="token-space token-space--rr"></div>
 							</td>
 							<td class="rr-cell doodad-space" data-cell-number="15" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Doodad space">
 								<span class="rr-cell__text">Doodad</span>
-								<div class="token-space"></div>
+								<div class="token-space token-space--rr"></div>
 							</td>
 							<td class="rr-cell opportunity-space" data-cell-number="14" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Opportunity space">
 								<span class="rr-cell__text">Opportunity</span>
-								<div class="token-space"></div>
+								<div class="token-space token-space--rr"></div>
 							</td>
 							<td class="rr-cell baby-space" data-cell-number="13" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Baby space">
 								<span class="rr-cell__text">Baby</span>
-								<div class="token-space"></div>
+								<div class="token-space token-space--rr"></div>
 							</td>
 							<td class="rr-cell market-space" data-cell-number="12" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Market space">
 								<span class="rr-cell__text">Market</span>
-								<div class="token-space"></div>
+								<div class="token-space token-space--rr"></div>
 							</td>
 							<td colspan="2" class="rr-cell opportunity-space" data-cell-number="11" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Opportunity space">
 								<span class="rr-cell__text">Opportunity</span>
-								<div class="token-space"></div>
+								<div class="token-space token-space--rr"></div>
 							</td>
 						</tr>
 					</table>
