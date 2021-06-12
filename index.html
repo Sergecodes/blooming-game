@@ -320,21 +320,137 @@
       </form>
     </div>
 		  <div class="assets-setup">
+	<link rel="stylesheet" href="css/bootstrap5-beta3.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/bootstrap5-beta3.bundle.min.js"></script>
+</head>
+<body class="page">
+	<div class="setup-forms-wrapper js-setup-forms-wrapper">
+		<form class="player-setup-form">
+			<label>
+				<span>Nombre de joueurs:</span>
+				<select class="form-select mb-1 player-select">
+					<option class="player-select__option js-player-select__option" value="1" selected>1</option>
+					<option class="player-select__option js-player-select__option" value="2">2</option>
+					<option class="player-select__option js-player-select__option" value="3">3</option>
+				</select>
+			</label>
+
+			<div class="players-table js-players-table">
+				<!-- juste le premier joueur est visible par defaut (les autres ont display: none) -->
+				<div class="mb-4 player-1-setup js-player-1-setup">
+					<div class="form-floating w-75 mb-1">
+						<input id="playerInput1" type="text" class="form-control js-players-table__input js-player-1-setup__input" value="Player 1" autofocus>
+						<label for="playerInput1">Nom du joueur</label>
+					</div>
+					<div class="w-75 mb-2">
+						<span>Couleur:</span>
+						<select class="form-select" name="player-1-color-select">
+							<option value="green" selected>Green</option>
+							<option value="red">Red</option>
+							<option value="yellow">Yellow</option>
+						</select>
+					</div>
+					<hr>
+				</div>
+				<div class="mb-4 player-2-setup js-player-2-setup">
+					<div class="form-floating w-75 mb-1">
+						<input id="playerInput2" type="text" class="form-control js-players-table__input js-player-2-setup__input" value="Player 2">
+						<label for="playerInput2">Nom du joueur</label>
+					</div>
+					<div class="w-75 mb-2">
+						<span>Couleur:</span>
+						<select class="form-select" name="player-2-color-select">
+							<option value="green" selected>Green</option>
+							<option value="red">Red</option>
+							<option value="yellow">Yellow</option>
+						</select>
+					</div>
+					<hr>
+				</div>
+				<div class="mb-1 player-3-setup js-player-3-setup">
+					<div class="form-floating w-75 mb-1">
+						<input id="playerInput3" type="text" class="form-control js-players-table__input js-player-3-setup__input" value="Player 3">
+						<label for="playerInput3">Nom du joueur</label>
+					</div>
+					<div class="w-75 mb-2">
+						<span>Couleur:</span>
+						<select class="form-select" name="player-3-color-select">
+							<option value="green" selected>Green</option>
+							<option value="red">Red</option>
+							<option value="yellow">Yellow</option>
+						</select>
+					</div>
+					<hr>
+				</div>
+			</div>
+		</form>
+
+		<form class="game-setup-form js-game-setup-form" name="gameSetup">
+	    <div class="mb-2 children-number-setup">
+	      <label class="form-label">
+	        Nombre max d'enfants par joueur
+	        <input type="number" min="2" class="form-control children-number-setup__input js-children-number-setup__input" required>
+	      </label>
+	    </div>
+	    <div class="mb-2 loan-interest-percent-setup">
+	      <label class="form-label">
+	        Pourcentage d'interet sur un pret
+	        <input type="number" min="1" max="100" class="form-control loan-interest-percent-setup__input js-loan-interest-percent-setup__input" required>
+	      </label>
+	    </div>
+	    <div class="mb-2 small-deal-setup">
+	      <label class="form-label">
+	        Montant maximum de Small Deal
+	        <input type="number" min="0" step="500" class="form-control small-deal-setup__input js-small-deal-setup__input" required>
+	      </label>
+	    </div>
+	    <div class="mb-2 big-deal-setup">
+	      <label class="form-label">
+	        Montant minimum de Big Deal
+					<!-- step="250" because 1.5 * mindeal gives a multiple of 250.. -->
+	        <input type="number" min="0" step="250" class="form-control big-deal-setup__input js-big-deal-setup__input" required>
+	      </label>
+	    </div>
+	    <div class="mb-2 duration-setup">
+	      <span class="d-block">Duree de la partie</span>
+	      <div class="form-check form-check-inline">
+	        <label class="form-check-label">
+	          30mins
+	          <input class="form-check-input duration-setup__input js-duration-setup__input" name="duration" type="radio" value="30" checked>
+	        </label>
+	      </div>
+	      <div class="form-check form-check-inline">
+	        <label class="form-check-label">
+	          1hr
+	          <input class="form-check-input duration-setup__input js-duration-setup__input" name="duration" type="radio" value="60">
+	        </label>
+	      </div>
+	      <div class="form-check form-check-inline">
+	        <label class="form-check-label">
+	          2hrs
+	          <input class="form-check-input duration-setup__input js-duration-setup__input" name="duration" type="radio" value="120">
+	        </label>
+	      </div>
+		  </div>
+
+		  <!-- <div class="assets-setup">
 		    <p class="h3">Atouts</p>
 		    <div class="assets-list js-assets-list">
-					<!-- les atouts sont dynamiquement generes(par le js) -->
+					- les atouts sont dynamiquement generes(par le js) -
 		    </div>
-		  </div>
+		  </div> -->
+
 		  <div class="d-grid gap-2 p-2">
 				<input type="submit" class="btn btn-primary start-game-button js-start-game-button" value="OK">
-		    <!-- <button type="submit" class="btn btn-primary start-game-button js-start-game-button">Commencer</button> -->
 		  </div>
 		</form>
 	</div>
 
 	<div class="choose-dream-wrapper js-choose-dream-wrapper">
 		<div class="choose-dream choose-dream--p1 js-choose-dream--p1">
-			<p class="text-muted h5">Joeur 1</p>
+			<!-- le nom du joueur sera insere avec le javascript -->
+			<p class="text-muted h5 js-choose-dream--p1__name"></p>
 			<h1>Choisir votre rêve</h1>
 
 			<div class="dream">
@@ -349,13 +465,13 @@
 				</div>
 			</div>
 			<div class="player-info js-player-info--p1">
-				<p>Vous etes un <span class="player-info__job">avocat</span>.</p>
-				<p>Votre salaire est <span class="player-info__salary">800000</span>.</p>
-				<p>Votre cash initial est <span class="player-info__cash">10000</span>.</p>
+				<p>Vous etes un <span class="js-player-info--p1__job"></span>.</p>
+				<p>Votre salaire est <span class="js-player-info--p1__salary"></span>.</p>
+				<p>Votre cash initial est <span class="js-player-info--p1__cash"></span>.</p>
 			</div>
 		</div>
 		<div class="choose-dream choose-dream--p2 js-choose-dream--p2">
-			<p class="text-muted h5">Joeur 2</p>
+			<p class="text-muted h5 js-choose-dream--p2__name"></p>
 			<h1>Choisir votre rêve</h1>
 
 			<div class="dream">
@@ -370,13 +486,13 @@
 				</div>
 			</div>
 			<div class="player-info js-player-info--p2">
-				<p>Vous etes un <span class="player-info__job">avocat</span>.</p>
-				<p>Votre salaire est <span class="player-info__salary">800000</span>.</p>
-				<p>Votre cash initial est <span class="player-info__cash">10000</span>.</p>
+				<p>Vous etes un <span class="js-player-info--p2__job"></span>.</p>
+				<p>Votre salaire est <span class="js-player-info--p2__salary"></span>.</p>
+				<p>Votre cash initial est <span class="js-player-info--p2__cash"></span>.</p>
 			</div>
 		</div>
 		<div class="choose-dream choose-dream--p3 js-choose-dream--p3">
-			<p class="text-muted h5">Joeur 3</p>
+			<p class="text-muted h5 js-choose-dream--p3__name"></p>
 			<h1>Choisir votre rêve</h1>
 
 			<div class="dream">
@@ -391,14 +507,15 @@
 				</div>
 			</div>
 			<div class="player-info js-player-info--p3">
-				<p>Vous etes un <span class="player-info__job">avocat</span>.</p>
-				<p>Votre salaire est <span class="player-info__salary">800000</span>.</p>
-				<p>Votre cash initial est <span class="player-info__cash">10000</span>.</p>
+				<p>Vous etes un <span class="js-player-info--p3__job"></span>.</p>
+				<p>Votre salaire est <span class="js-player-info--p3__salary"></span>.</p>
+				<p>Votre cash initial est <span class="js-player-info--p3__cash"></span>.</p>
 			</div>
 		</div>
 	</div>
 	<button class="btn-primary w-50 p-2 mx-auto mt-3 start-button js-start-button">Commencer</button>
 
+<<<<<<< HEAD
     <!-- 11 horizontal cells & 8 vertical cells for fasttrack -->
     <!-- 7 horizontal cells & 6 vertical cells for rat race -->
     <!-- rr = Rat race, ft = Fast track */ -->
@@ -947,6 +1064,289 @@
 					<tr class="income-row">
 							<td>
 					</td></tr></tbody><tbody id="income-real-estate-body"></tbody>
+=======
+	<!-- 11 horizontal cells & 8 vertical cells for fasttrack -->
+	<!-- 7 horizontal cells & 6 vertical cells for rat race -->
+	<!-- rr = Rat race, ft = Fast track */ -->
+	<div class="game-board js-game-board">
+		<table class="game-table" border="2">
+			<tr>
+				<td colspan="11" class="lead board-title">Fast Track</td>
+			</tr>
+			<tr>
+				<td class="ft-cell cashflow-space" colspan="2">CashFlow Day</td>
+				<td class="ft-cell investment-space">
+					<span class="investment-space__name">Business 1</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description investment-space__description">Description</span>
+				</td>
+				<td class="ft-cell investment-space">
+					<span class="investment-space__name">Business 1</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description investment-space__description">Description</span>
+				</td>
+				<td class="ft-cell dream-space">
+					<span>Dream</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description">A chance to have your dream come true</span>
+				</td>
+				<td class="ft-cell investment-space">
+					<span class="investment-space__name">Business 1</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description investment-space__description">Description</span>
+				</td>
+				<td class="ft-cell investment-space">
+					<span class="investment-space__name">Business 1</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description investment-space__description">Description</span>
+				</td>
+				<td class="ft-cell divorce-space">
+					<span>DIVORCE</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description">You lose all your cash</span>
+				</td>
+				<td class="ft-cell investment-space">
+					<span class="investment-space__name">Business 1</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description investment-space__description">Description</span>
+				</td>
+				<td class="ft-cell cashflow-space" colspan="2">CashFlow Day</td>
+			</tr>
+			<tr>
+				<td class="ft-cell investment-space">
+					<span class="investment-space__name">Business 1</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description investment-space__description">Description</span>
+				</td>
+				<td colspan="9" class="lead board-title">Rat Race</td>
+				<td class="ft-cell investment-space">
+					<span class="investment-space__name">Business 1</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description investment-space__description">Description</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="ft-cell lawsuit-space">
+					<span>LAWSUIT</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description">You lose 1/2 of your cash</span>
+				</td>
+				<td rowspan="5" colspan="9" class="rr-table-wrapper">
+					<table class="rr-table" border="2">
+						<tr class="rr-row">
+							<td colspan="2" class="start-here-cell js-start-here-cell">
+								<span>Start Here</span>
+								<!-- cet espace sera rempli avec le js -->
+								<div class="token-space token-space--rr">
+
+								</div>
+							</td>
+							<!-- default bootstrap tooltip position is "top" -->
+							<td class="rr-cell charity-space" data-cell-number="1" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Charity space">
+								<span class="rr-cell__text">Charity</span>
+								<div class="token-space token-space--rr"></div>
+							</td>
+							<td class="rr-cell opportunity-space" data-cell-number="2" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Opportunity space">
+								<span class="rr-cell__text">Opportunity</span>
+								<div class="token-space token-space--rr"></div>
+							</td>
+							<td class="rr-cell market-space" data-cell-number="3" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Market space">
+								<span class="rr-cell__text">Market</span>
+								<div class="token-space token-space--rr"></div>
+							</td>
+							<td class="rr-cell paycheck-space" data-cell-number="4" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Paycheck space">
+								<span class="rr-cell__text">Paycheck</span>
+								<div class="token-space token-space--rr"></div>
+							</td>
+							<td class="rr-cell doodad-space" data-cell-number="5" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Doodad space">
+								<span class="rr-cell__text">Doodad</span>
+								<div class="token-space token-space--rr"></div>
+							</td>
+							<td colspan="2" class="rr-cell opportunity-space" data-cell-number="6" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Opportunity space">
+								<span class="rr-cell__text">Opportunity</span>
+								<div class="token-space token-space--rr"></div>
+							</td>
+						</tr>
+						<tr class="rr-row">
+							<td class="rr-cell paycheck-space" data-cell-number="21" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="right" title="Paycheck space">
+								<span class="rr-cell__text">Paycheck</span>
+								<div class="token-space token-space--rr"></div>
+							</td>
+							<td colspan="7" class="player-list-wrapper">
+								<table class="player-list-table">
+									<tr class="player-list-row js-player-list-row">
+										<!-- insert this with javascript using the number of players for the current party -->
+										<!-- <td class="player-list-row__cell">Player x</td> -->
+									</tr>
+								</table>
+							</td>
+							<td class="rr-cell market-space" data-cell-number="7" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="left" title="Market space">
+								<span class="rr-cell__text">Market</span>
+								<div class="token-space token-space--rr"></div>
+							</td>
+						</tr>
+						<tr class="rr-row">
+							<td class="rr-cell opportunity-space" data-cell-number="20" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="right" title="Opportunity space">
+								Opportunity
+							</td>
+							<td rowspan="3" colspan="7" class="player-info">
+								<!-- game info box or div -->
+							</td>
+							<td class="rr-cell doodad-space" data-cell-number="8" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="left" title="Doodad space">
+								<span class="rr-cell__text">Doodad</span>
+								<div class="token-space token-space--rr"></div>
+							</td>
+						</tr>
+						<tr class="rr-row">
+							<td class="rr-cell market-space" data-cell-number="19" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="right" title="Market space">
+								<span class="rr-cell__text">Market</span>
+								<div class="token-space token-space--rr"></div>
+							</td>
+							<td class="rr-cell opportunity-space" data-cell-number="9" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="left" title="Opportunity space">
+								<span class="rr-cell__text">Opportunity</span>
+								<div class="token-space token-space--rr"></div>
+							</td>
+						</tr>
+						<tr class="rr-row">
+							<td class="rr-cell downsized-space" data-cell-number="18" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="right" title="Downsized space">
+								<span class="rr-cell__text">Downsized</span>
+								<div class="token-space token-space--rr"></div>
+							</td>
+							<td class="rr-cell paycheck-space" data-cell-number="10" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="left" title="Baby space">
+								<span class="rr-cell__text">Paycheck</span>
+								<div class="token-space token-space--rr"></div>
+							</td>
+						</tr>
+						<tr class="rr-row">
+							<td colspan="2" class="rr-cell opportunity-space" data-cell-number="17" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Opportunity space">
+								<span class="rr-cell__text">Opportunity</span>
+								<div class="token-space token-space--rr"></div>
+							</td>
+							<td class="rr-cell charity-space" data-cell-number="16" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Charity space">
+								<span class="rr-cell__text">Charity</span>
+								<div class="token-space token-space--rr"></div>
+							</td>
+							<td class="rr-cell doodad-space" data-cell-number="15" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Doodad space">
+								<span class="rr-cell__text">Doodad</span>
+								<div class="token-space token-space--rr"></div>
+							</td>
+							<td class="rr-cell opportunity-space" data-cell-number="14" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Opportunity space">
+								<span class="rr-cell__text">Opportunity</span>
+								<div class="token-space token-space--rr"></div>
+							</td>
+							<td class="rr-cell baby-space" data-cell-number="13" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Baby space">
+								<span class="rr-cell__text">Baby</span>
+								<div class="token-space token-space--rr"></div>
+							</td>
+							<td class="rr-cell market-space" data-cell-number="12" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Market space">
+								<span class="rr-cell__text">Market</span>
+								<div class="token-space token-space--rr"></div>
+							</td>
+							<td colspan="2" class="rr-cell opportunity-space" data-cell-number="11" data-is-rat-race-cell="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Opportunity space">
+								<span class="rr-cell__text">Opportunity</span>
+								<div class="token-space token-space--rr"></div>
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td class="ft-cell lawsuit-space">
+					<span>LAWSUIT</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description">You lose 1/2 of your cash</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="ft-cell investment-space">
+					<span class="investment-space__name">Business 1</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description investment-space__description">Description</span>
+				</td>
+				<td class="ft-cell investment-space">
+					<span class="investment-space__name">Business 1</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description investment-space__description">Description</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="ft-cell investment-space">
+					<span class="investment-space__name">Business 1</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description investment-space__description">Description</span>
+				</td>
+				<td class="ft-cell investment-space">
+					<span class="investment-space__name">Business 1</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description investment-space__description">Description</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="ft-cell tax-audit-space">
+					<span>TAX AUDIT</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description">You lose 1/2 of your cash</span>
+				</td>
+				<td class="ft-cell tax-audit-space">
+					<span>TAX AUDIT</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description">Lose 1/2 of your cash</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="ft-cell investment-space">
+					<span class="investment-space__name">Business 1</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description investment-space__description">Description</span>
+				</td>
+				<td class="ft-cell investment-space">
+					<span class="investment-space__name">Business 1</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description investment-space__description">Description</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="ft-cell cashflow-space" colspan="2">CashFlow Day</td>
+				<td class="ft-cell investment-space">
+					<span class="investment-space__name">Business 1</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description investment-space__description">Description</span>
+				</td>
+				<td class="ft-cell investment-space">
+					<span class="investment-space__name">Business 1</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description investment-space__description">Description</span>
+				</td>
+				<td class="ft-cell charity-space">
+					<span>CHARITY</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description">
+						Donate 10% of your Total Income to use 2 dice on each of your next 3 turns
+					</span>
+				</td>
+				<td class="ft-cell investment-space">
+					<span class="investment-space__name">Business 1</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description investment-space__description">Description</span>
+				</td>
+				<td class="ft-cell investment-space">
+					<span class="investment-space__name">Business 1</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description investment-space__description">Description</span>
+				</td>
+				<td class="ft-cell dream-space">
+					<span>DREAM</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description">A chance to have your dream come true</span>
+				</td>
+				<td class="ft-cell investment-space">
+					<span class="investment-space__name">Business 1</span>
+					<div class="token-space"></div>
+					<span class="small ft-cell__description investment-space__description">Description</span>
+				</td>
+				<td class="ft-cell cashflow-space" colspan="2">CashFlow Day</td>
+			</tr>
+		</table>
+	</div>
+>>>>>>> ed7e8f458805ed52cc23c7e9cb61b96cf95ea467
 
 			</table>
 			<table id="expense-table">

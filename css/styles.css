@@ -2,6 +2,7 @@
 	background-image: url('../img/bg2.jpg');
 	background-repeat: no-repeat;
 	background-size: 100%;
+	user-select: none;
 }
 
 .setup-forms-wrapper {
@@ -45,31 +46,32 @@
 }
 
 .choose-dream {
-		display: none;
-    text-align: center;
-    border: 2px groove black;
-    margin:0 auto;
-    /* width: 30em; */
-    border-radius: 10px;
-    background-color: rgb(247, 241, 234);
+	display: none;
+  text-align: center;
+  border: 2px groove black;
+  margin: 5px auto;
+  padding-left: 10px;
+	padding-right: 10px;
+  border-radius: 10px;
+  background-color: rgb(247, 241, 234);
 }
 
 .dream {
-    display: flex;
-    align-items: flex-start;
-		justify-content: space-between;
+  display: flex;
+  align-items: flex-start;
+	justify-content: space-between;
 }
 
 .dream-info {
-    margin: 10px 10%;
+  margin: 10px 10%;
 }
 
 .choose-dream__arrow {
-		width: 0;
-		height: 0;
-		border-top: 20px solid transparent;
-		border-bottom: 20px solid transparent;
-		align-self: center;
+	width: 0;
+	height: 0;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	align-self: center;
 }
 
 .choose-dream__arrow:hover {
@@ -131,18 +133,52 @@
 	table-layout: fixed;
 }
 
+.rr-row {
+	height: 5rem;
+}
+
 .rr-cell {
+	height: 100%;
 	border: 2px solid purple;
 	color: white;
 	text-align: center;
-	vertical-align: bottom;
+	vertical-align: top;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
+.rr-cell__text {
+	font-variant: all-small-caps;
+}
+
 .start-here-cell {
 	border: 2px solid blue;
+	color: blue;
+	text-align: center;
+	vertical-align: top;
+}
+
+.token-space {
+	display: flex;
+	height: 10px;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.token-space--rr {
+	height: 70%;
+}
+
+.player-token {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	color: gold;
+	width: 30px;
+	height: 35px;
+	border-radius: 50%;
+	border: 1.8px ridge gold;
 
 }
 
@@ -162,7 +198,7 @@
 	padding-right: 7px;
 }
 
-/* style to set on the cell of the active player */
+/* style to set on the cell of the active player's box */
 .active-player {
 	background-color: #97994E;
 }
@@ -214,6 +250,7 @@
 .downsized-space {
 	background-color: #D32F2F;
 }
+<<<<<<< HEAD
 
 .player-sheet {
 	display: none;
@@ -225,3 +262,5 @@
 .player-sheet-title {
 	text-align: center;
 }
+=======
+>>>>>>> ed7e8f458805ed52cc23c7e9cb61b96cf95ea467
