@@ -146,6 +146,30 @@ export function onStartGame(event) {
   let gameBoard = document.querySelector('.js-game-board');
   gameBoard.style.display = 'block';
   let page = document.querySelector('.page');
+  page.style.background = 'aliceblue';
+  document.querySelector('.player-sheet').style.display = 'block';
+
+/*
+  for (const input of playerInputs) {
+    let i = 1;
+    // obtenir le div principal du input du joueur
+    const playerDiv = input.parentElement.parentElement;
+
+    const playerDivStyle = window.getComputedStyle(playerDiv);
+    if (playerDivStyle.display !== 'none') {
+      const playerChooseDreamForm = document.querySelector(`.js-choose-dream--p${i}`)
+      playerChooseDreamForm.style.display = 'block';
+
+      let profession = Profession.getRandomProfession()();
+      // player: Player(name, profession, monthlyCashFlow, dream)
+      players.push(new Player(input.value, profession, profession.monthlySalary));
+    }
+
+    i++;
+  }
+
+  form.style.display = "none";
+*/
   page.style.background = '#E2ECF4';  // une version plus foncee que 'aliceblue'
   // page.style.background = 'aliceblue';
 
