@@ -110,13 +110,30 @@ export function onCompleteInitialSetup(event) {
 
 /* ajouter l'evenement a effectuer lorsqu'un joueur choisir un autre reve (en parcourant les reves) */
 export function onChangeDream() {
-  let position = 0;
+  function Player(position) {
+    this.position = position;
+  };
+  const player1 = new Player(1, 0);
+  const player2 = new Player(1, 0);
+  const player3 = new Player(1, 0);
+
   let leftArrows = document.querySelectorAll(".js-choose-dream__arrow--left");
   for (let leftArrow of leftArrows) {
     leftArrow.addEventListener('click', e => {
       const playerNum = e.target.dataset.playerNum;
-      position <= 0 ? position = DREAMS.length - 1 : position -= 1;
-      createDream(DREAMS[position], parseInt(playerNum));
+
+      if(playerNum == 1) {
+        player1.position <= 0 ? player1.position = DREAMS.length - 1 : player1.position -= 1;
+      createDream(DREAMS[player1.position], parseInt(playerNum));
+      }
+      if(playerNum == 2) {
+        player2.position <= 0 ? player2.position = DREAMS.length - 1 : player2.position -= 1;
+      createDream(DREAMS[player2.position], parseInt(playerNum));
+      }
+      if(playerNum == 3) {
+        player3.position <= 0 ? player3.position = DREAMS.length - 1 : player3.position -= 1;
+      createDream(DREAMS[player3.position], parseInt(playerNum));
+      }
     });
   }
 
@@ -124,8 +141,19 @@ export function onChangeDream() {
   for (let rightArrow of rightArrows) {
     rightArrow.addEventListener('click', e => {
       const playerNum = e.target.dataset.playerNum;
-      position >= DREAMS.length - 1 ? position = 0 : position += 1;
-      createDream(DREAMS[position], parseInt(playerNum));
+
+      if(playerNum == 1) {
+        player1.position >= DREAMS.length - 1 ? player1.position = 0 : player1.position += 1;
+      createDream(DREAMS[player1.position], parseInt(playerNum));
+      }
+      if(playerNum == 2) {
+        player2.position >= DREAMS.length - 1 ? player2.position = 0 : player2.position += 1;
+      createDream(DREAMS[player2.position], parseInt(playerNum));
+      }
+      if(playerNum == 3) {
+        player3.position >= DREAMS.length - 1 ? player3.position = 0 : player3.position += 1;
+      createDream(DREAMS[player3.position], parseInt(playerNum));
+      }
     });
   }
 }
