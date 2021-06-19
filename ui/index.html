@@ -5,15 +5,15 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" href="css/bootstrap5-beta3.min.css">
+	<link rel="stylesheet" href="css/bootstrap-v5.min.css">
 	<link rel="stylesheet" href="css/styles.css">
-	<script src="js/bootstrap5-beta3.bundle.min.js"></script>
+	<script src="js/bootstrap-v5.bundle.min.js"></script>
 </head>
 <body class="page">
 	<div class="setup-forms-wrapper js-setup-forms-wrapper">
 		<form class="player-setup-form">
 			<label>
-				<span>Nombre de joueurs:</span>
+				<span>Number of players:</span>
 				<select class="form-select mb-1 player-select">
 					<option class="player-select__option js-player-select__option" value="1" selected>1</option>
 					<option class="player-select__option js-player-select__option" value="2">2</option>
@@ -26,10 +26,10 @@
 				<div class="mb-4 player-1-setup js-player-1-setup">
 					<div class="form-floating w-75 mb-1">
 						<input id="playerInput1" type="text" class="form-control js-players-table__input js-player-1-setup__input" value="Player 1" autofocus>
-						<label for="playerInput1">Nom du joueur</label>
+						<label for="playerInput1">Player name</label>
 					</div>
 					<div class="w-75 mb-2">
-						<span>Couleur:</span>
+						<span>Play colour:</span>
 						<select class="form-select" name="player-1-color-select">
 							<option value="green" selected>Green</option>
 							<option value="red">Red</option>
@@ -41,10 +41,10 @@
 				<div class="mb-4 player-2-setup js-player-2-setup">
 					<div class="form-floating w-75 mb-1">
 						<input id="playerInput2" type="text" class="form-control js-players-table__input js-player-2-setup__input" value="Player 2">
-						<label for="playerInput2">Nom du joueur</label>
+						<label for="playerInput2">Player name</label>
 					</div>
 					<div class="w-75 mb-2">
-						<span>Couleur:</span>
+						<span>Play colour:</span>
 						<select class="form-select" name="player-2-color-select">
 							<option value="green" selected>Green</option>
 							<option value="red">Red</option>
@@ -56,10 +56,10 @@
 				<div class="mb-1 player-3-setup js-player-3-setup">
 					<div class="form-floating w-75 mb-1">
 						<input id="playerInput3" type="text" class="form-control js-players-table__input js-player-3-setup__input" value="Player 3">
-						<label for="playerInput3">Nom du joueur</label>
+						<label for="playerInput3">Player name</label>
 					</div>
 					<div class="w-75 mb-2">
-						<span>Couleur:</span>
+						<span>Play colour:</span>
 						<select class="form-select" name="player-3-color-select">
 							<option value="green" selected>Green</option>
 							<option value="red">Red</option>
@@ -74,25 +74,31 @@
 		<form class="game-setup-form js-game-setup-form" name="gameSetup">
 	    <div class="mb-2 children-number-setup">
 	      <label class="form-label">
-	        Nombre max d'enfants par joueur
+		       Max number of children per player
 	        <input type="number" min="2" class="form-control children-number-setup__input js-children-number-setup__input" required>
+	      </label>
+	    </div>
+			<div class="mb-2 exit-amount-setup">
+	      <label class="form-label">
+	        Exit amount(amount to finish game)
+	        <input class="form-control js-exit-amount-setup__input" type="number" min="500000" step="500" value="1000000" required>
 	      </label>
 	    </div>
 	    <div class="mb-2 loan-interest-percent-setup">
 	      <label class="form-label">
-	        Pourcentage d'interet sur un pret
+	        Interest percentage on loan
 	        <input type="number" min="1" max="100" class="form-control loan-interest-percent-setup__input js-loan-interest-percent-setup__input" required>
 	      </label>
 	    </div>
 	    <div class="mb-2 small-deal-setup">
 	      <label class="form-label">
-	        Montant maximum de Small Deal
+	        Maximum small deal amount
 	        <input type="number" min="0" step="500" class="form-control small-deal-setup__input js-small-deal-setup__input" required>
 	      </label>
 	    </div>
 	    <div class="mb-2 big-deal-setup">
 	      <label class="form-label">
-	        Montant minimum de Big Deal
+	        Minimum big deal amount
 					<!-- step="250" because 1.5 * mindeal gives a multiple of 250.. -->
 	        <input type="number" min="0" step="250" class="form-control big-deal-setup__input js-big-deal-setup__input" required>
 	      </label>
@@ -136,7 +142,7 @@
 		<div class="choose-dream choose-dream--p1 js-choose-dream--p1">
 			<!-- le nom du joueur sera insere avec le javascript -->
 			<p class="text-muted h5 js-choose-dream--p1__name"></p>
-			<h1>Choisir votre rêve</h1>
+			<h1>Choose your dream</h1>
 
 			<div class="dream">
 				<div class="choose-dream__arrow choose-dream__arrow--left js-choose-dream__arrow--left" data-player-num="1">
@@ -150,14 +156,14 @@
 				</div>
 			</div>
 			<div class="player-info js-player-info--p1">
-				<p>Vous etes un <span class="js-player-info--p1__job"></span>.</p>
-				<p>Votre salaire est <span class="js-player-info--p1__salary"></span>.</p>
-				<p>Votre cash initial est <span class="js-player-info--p1__cash"></span>.</p>
+				<p>You are a <span class="js-player-info--p1__job"></span>.</p>
+				<p>Your salary is <span class="js-player-info--p1__salary"></span>.</p>
+				<p>Your initial cash is <span class="js-player-info--p1__cash"></span>.</p>
 			</div>
 		</div>
 		<div class="choose-dream choose-dream--p2 js-choose-dream--p2">
 			<p class="text-muted h5 js-choose-dream--p2__name"></p>
-			<h1>Choisir votre rêve</h1>
+			<h1>Choose your dream</h1>
 
 			<div class="dream">
 				<div class="choose-dream__arrow choose-dream__arrow--left js-choose-dream__arrow--left" data-player-num="2">
@@ -171,14 +177,14 @@
 				</div>
 			</div>
 			<div class="player-info js-player-info--p2">
-				<p>Vous etes un <span class="js-player-info--p2__job"></span>.</p>
-				<p>Votre salaire est <span class="js-player-info--p2__salary"></span>.</p>
-				<p>Votre cash initial est <span class="js-player-info--p2__cash"></span>.</p>
+				<p>You are a <span class="js-player-info--p2__job"></span>.</p>
+				<p>Your salary is <span class="js-player-info--p2__salary"></span>.</p>
+				<p>Your initial cash is <span class="js-player-info--p2__cash"></span>.</p>
 			</div>
 		</div>
 		<div class="choose-dream choose-dream--p3 js-choose-dream--p3">
 			<p class="text-muted h5 js-choose-dream--p3__name"></p>
-			<h1>Choisir votre rêve</h1>
+			<h1>Choose your dream</h1>
 
 			<div class="dream">
 				<div class="choose-dream__arrow choose-dream__arrow--left js-choose-dream__arrow--left" data-player-num="3">
@@ -192,13 +198,13 @@
 				</div>
 			</div>
 			<div class="player-info js-player-info--p3">
-				<p>Vous etes un <span class="js-player-info--p3__job"></span>.</p>
-				<p>Votre salaire est <span class="js-player-info--p3__salary"></span>.</p>
-				<p>Votre cash initial est <span class="js-player-info--p3__cash"></span>.</p>
+				<p>You are a <span class="js-player-info--p3__job"></span>.</p>
+				<p>Your salary is <span class="js-player-info--p3__salary"></span>.</p>
+				<p>Your initial cash is <span class="js-player-info--p3__cash"></span>.</p>
 			</div>
 		</div>
 	</div>
-	<button class="btn-primary w-50 p-2 mx-auto mt-3 start-button js-start-button">Commencer</button>
+	<button class="btn-primary w-50 p-2 mx-auto mt-3 start-button js-start-button">START</button>
 
 	<!-- 11 horizontal cells & 8 vertical cells for fasttrack -->
 	<!-- 7 horizontal cells & 6 vertical cells for rat race -->
@@ -482,6 +488,6 @@
 		</table>
 	</div>
 
-	<script src="build/app.js"></script>
+	<script src="../business/build/app.js"></script>
 </body>
 </html>

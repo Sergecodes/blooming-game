@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # local dev debug files
-/js/useless.js
+/ui/js/useless.js
 
 # dependencies
 /node_modules
@@ -16,7 +16,7 @@
 /out/
 
 # production
-# /build   -- uncomment this to not include build file in git
+# /business/build   -- uncomment this to not include build file in git
 
 # misc
 .DS_Store

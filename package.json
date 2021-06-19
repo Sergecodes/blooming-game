@@ -2,7 +2,7 @@
   "name": "blooming-game",
   "version": "1.0.0",
   "description": "A school project inspired by the Cash Flow Game invented by Robert Kiyosaki",
-  "main": "index.js",
+  "main": "ui/js/index.js",
   "scripts": {
     "start": "webpack --config ./webpack.config.js --watch",
     "build": "webpack --mode production && node build-sw",

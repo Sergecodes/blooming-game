@@ -1,20 +1,20 @@
-
 /**
   * duration: game length in minutes, max is 2hours(120mins)
  */
 export default class Party {
-  constructor(maxNumOfChildren, maxSmallDealAmt, minBigDealAmt, loanInterestPercent, duration, startTime) {
+  constructor(maxNumOfChildren, maxSmallDealAmt, minBigDealAmt, loanInterestPercent, exitAmt, duration) {
     this.maxNumOfChildren = maxNumOfChildren;
     this.maxSmallDealAmt = maxSmallDealAmt;
     this.minBigDealAmt = minBigDealAmt;
     this.loanInterestPercent = loanInterestPercent;
+    // si le temps de la partie est finie le vainqueur sera celui qui aura atteint ce montant
+    this.exitAmt = exitAmt;
     this.duration = duration;
-    this.startTime = startTime;
     this.dreams = [];  // les reves disponibles dans la partie
     this.players = [];
     this.assets = [];
     this.professions = [];
-    // this.expenses = [];
+    this.doodads = [];
   }
 
   /* retourne le nombre de joueurs de la partie */

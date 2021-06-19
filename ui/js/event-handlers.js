@@ -1,17 +1,9 @@
-import Party from "./classes/Party";
-import Player from "./classes/Player";
-import { Profession, PROFESSIONS } from './classes/Card';
-import { DREAMS } from './classes/Dream';
-import { ASSETS } from './classes/Asset';
-import {
-  createDream,
-  getPartyConstructorVals,
-  initialPlayersInfo,
-  createPlayerMarkers,
-  insertPlayerBoxes,
-  insertPlayerNamesInChooseDreamForm,
-
-} from "./utils";
+import Party from "/business/classes/Party";
+import Player from "/business/classes/Player";
+import { Profession, PROFESSIONS } from '/business/classes/Profession';
+import { DREAMS } from '/business/classes/Dream';
+import { ASSETS } from '/business/classes/Asset';
+import Utils from './utils';
 
 // l'objet global "party"
 let party;
@@ -88,20 +80,20 @@ export function onCompleteInitialSetup(event) {
   const startButton = document.querySelector('.js-start-button');
   startButton.style.display = 'block';
 
-  insertPlayerNamesInChooseDreamForm();
+  Utils.insertPlayerNamesInChooseDreamForm();
 
-  // Party(maxNumOfChildren, maxSmallDealAmt, minLargeDealAmt, loanInterestPercent, duration, startTime)
-  // obj: { maxNumOfChildren, maxSmallDealAmt, minBigDealAmt, loanInterestPercent, duration, startTime };
-  let obj = getPartyConstructorVals();
+  // Party(maxNumOfChildren, maxSmallDealAmt, minLargeDealAmt, loanInterestPercent, exitAmt, duration)
+  // obj: { maxNumOfChildren, maxSmallDealAmt, minBigDealAmt, loanInterestPercent, exitAmt, duration };
+  let obj = Utils.getPartyConstructorVals();
   party = new Party(
     obj.maxNumOfChildren,
     obj.maxSmallDealAmt,
     obj.minBigDealAmt,
     obj.loanInterestPercent,
-    obj.duration,
-    obj.startTime
+    obj.exitAmt,
+    obj.duration
   );
-  party.players = initialPlayersInfo();
+  party.players = Utils.initialPlayersInfo();
   party.assets = ASSETS;
   party.dreams = DREAMS;
   party.professions = PROFESSIONS;
@@ -116,7 +108,7 @@ export function onChangeDream() {
     leftArrow.addEventListener('click', e => {
       const playerNum = e.target.dataset.playerNum;
       position <= 0 ? position = DREAMS.length - 1 : position -= 1;
-      createDream(DREAMS[position], parseInt(playerNum));
+      Utils.createDream(DREAMS[position], parseInt(playerNum));
     });
   }
 
@@ -125,7 +117,7 @@ export function onChangeDream() {
     rightArrow.addEventListener('click', e => {
       const playerNum = e.target.dataset.playerNum;
       position >= DREAMS.length - 1 ? position = 0 : position += 1;
-      createDream(DREAMS[position], parseInt(playerNum));
+      Utils.createDream(DREAMS[position], parseInt(playerNum));
     });
   }
 }
@@ -133,9 +125,9 @@ export function onChangeDream() {
 /* lorsqu'un joueur appuie sur le bouton "Commencer" */
 export function onStartGame(event) {
   // creer et inserer les pions des joueurs
-  createPlayerMarkers();
+  Utils.createPlayerMarkers();
   // creer les cases pour distinguer le joueur courant des autres joueurs
-  insertPlayerBoxes();
+  Utils.insertPlayerBoxes();
 
   // TODO: insert player info into Party...
   const chooseDreamWrapper = document.querySelector(".js-choose-dream-wrapper");

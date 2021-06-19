@@ -2,12 +2,11 @@ const path = require('path');
 
 module.exports = {
 	entry: [
-		'./index.js', './js/pre-init.js', './js/event-handlers.js', 
-		// './css/styles.css', './css/bootstrap5-beta3.min.css',
+		'/ui/js/index.js', '/ui/js/pre-init.js', '/ui/js/event-handlers.js', 
 	],
 	output: {
 		filename: 'app.js',
-		path: path.resolve(__dirname + '/build'),
+		path: path.resolve(__dirname + '/business/build'),
 	},
 	mode: 'development',
 

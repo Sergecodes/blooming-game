@@ -1,9 +1,5 @@
-import { DREAMS } from './classes/Dream';
-import {
-  // generateAssets,
-  createDream,
-
-} from './utils';
+import { DREAMS } from '/business/classes/Dream';
+import Utils from './utils';
 import {
   onChangeMaxSmallDealAmt,
   onClickPlayerSelectOption,
@@ -16,6 +12,9 @@ import {
 
 (function () {
   // generateAssets();
+  // setTimeout(function() {
+  //   alert('hello');
+  // }, 5000);
 
   let smallDealInput = document.querySelector('.js-small-deal-setup__input');
   smallDealInput.addEventListener('change', onChangeMaxSmallDealAmt);
@@ -32,9 +31,9 @@ import {
   startButton.addEventListener('click', onStartGame);
 
   // inserer les reves initiales dans le html
-  createDream(DREAMS[0], 1);  // player 1
-  createDream(DREAMS[0], 2);  // player 2
-  createDream(DREAMS[0], 3);  // player 3
+  Utils.createDream(DREAMS[0], 1);  // player 1
+  Utils.createDream(DREAMS[0], 2);  // player 2
+  Utils.createDream(DREAMS[0], 3);  // player 3
 
   // ajouter l'evenement a effectuer lorsqu'un joueur parcour les reves
   onChangeDream();
