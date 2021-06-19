@@ -23,7 +23,6 @@ export default class Utils {
 
   /* creer un reve (l'inserer dans le html) */
   static createDream(dream, playerNum) {
-    console.log(dream, playerNum);
     let dreamInfo = document.querySelector(`.js-dream-info--p${playerNum}`);
     dreamInfo.innerHTML = `<p class="dream-title">${dream.name}</p>
                           <p class="dream-description">${dream.description}</p>`;
