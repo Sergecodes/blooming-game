@@ -1,13 +1,6 @@
 import { DREAMS } from '/business/classes/Dream';
-import Utils from './utils';
-import {
-  onChangeMaxSmallDealAmt,
-  onClickPlayerSelectOption,
-  onCompleteInitialSetup,
-  onChangeDream,
-  onStartGame,
-
-} from './event-handlers';
+import Utils from './classes/Utils';
+import EventHandlers from './classes/EventHandlers';
 
 
 (function () {
@@ -17,26 +10,28 @@ import {
   // }, 5000);
 
   let smallDealInput = document.querySelector('.js-small-deal-setup__input');
-  smallDealInput.addEventListener('change', onChangeMaxSmallDealAmt);
+  smallDealInput.addEventListener('change', EventHandlers.onChangeMaxSmallDealAmt);
 
   let playerSelectOptions = document.querySelectorAll(".js-player-select__option");
   for (let option of playerSelectOptions) {
-    option.addEventListener("click", onClickPlayerSelectOption);
+    option.addEventListener("click", EventHandlers.onClickPlayerSelectOption);
   }
 
   let gameSetupForm = document.querySelector('.js-game-setup-form');
-  gameSetupForm.addEventListener('submit', onCompleteInitialSetup);
+  gameSetupForm.addEventListener('submit', EventHandlers.onCompleteInitialSetup);
 
   let startButton = document.querySelector('.js-start-button');
-  startButton.addEventListener('click', onStartGame);
+  startButton.addEventListener('click', EventHandlers.onStartGame);
 
   // inserer les reves initiales dans le html
   Utils.createDream(DREAMS[0], 1);  // player 1
   Utils.createDream(DREAMS[0], 2);  // player 2
   Utils.createDream(DREAMS[0], 3);  // player 3
 
-  // ajouter l'evenement a effectuer lorsqu'un joueur parcour les reves
-  onChangeDream();
+  // ajouter l'evenement a effectuer lorsqu'un joueur parcourt les reves
+  EventHandlers.onChangeDream();
 
+  let rollDiceButton = document.querySelector('.js-roll-dice-button');
+  rollDiceButton.addEventListener('click', EventHandlers.onRollDice);
 
 })();

@@ -1,6 +1,8 @@
 /**
   * duration: game length in minutes, max is 2hours(120mins)
  */
+
+
 export default class Party {
   constructor(maxNumOfChildren, maxSmallDealAmt, minBigDealAmt, loanInterestPercent, exitAmt, duration) {
     this.maxNumOfChildren = maxNumOfChildren;

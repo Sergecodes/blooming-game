@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
 	entry: [
-		'/ui/js/index.js', '/ui/js/pre-init.js', '/ui/js/event-handlers.js', 
+		'/ui/js/index.js', '/ui/js/pre-init.js', '/ui/js/classes/EventHandlers.js', 
 	],
 	output: {
 		filename: 'app.js',

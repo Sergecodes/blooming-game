@@ -1,4 +1,4 @@
-import { DREAMS_COST } from '/ui/js/utils';
+import { DREAMS_COST } from '/ui/js/classes/Utils';
 
 export default class Dream {
   constructor(name, description) {

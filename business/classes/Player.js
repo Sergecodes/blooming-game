@@ -1,4 +1,4 @@
-import { SAVINGS_AMT } from '/ui/js/utils';
+import { SAVINGS_AMT } from '/ui/js/classes/Utils';
 
 export default class Player {
   // monthlyCashFlow is also the player's paycheck

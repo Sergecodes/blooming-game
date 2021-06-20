@@ -200,6 +200,31 @@
 	background-color: #97994E;
 }
 
+.turn-info {
+	display: flex;
+	justify-content: center;
+}
+
+.turn-action {
+	text-align: center;
+  border: 2px groove grey;
+  width: 70%;
+  height: 20em;
+  border-radius: 10px;
+  background-color: rgb(247, 241, 234);
+  box-shadow: 0 2px 1px grey ;
+	margin-bottom: 2px;
+	padding: 7px;
+}
+
+.turn-action__p {
+	text-align: initial;
+}
+
+.roll-dice-button {
+	font-size: larger;
+  box-shadow: 3px 3px rgba(24, 253, 4, 0.986);
+}
 
 /* styles for spaces on the game */
 .cashflow-space {

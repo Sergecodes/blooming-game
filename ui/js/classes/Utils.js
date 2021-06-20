@@ -1,4 +1,5 @@
 /** Contient les fonctions d'utilites et constantes importantes */
+import { party } from './EventHandlers';
 import { RatRacePlayer } from '/business/classes/Player';
 import Profession from '/business/classes/Profession';
 
@@ -7,6 +8,12 @@ export const SAVINGS_AMT = 10000;
 export const DREAMS_COST = 1000000;
 
 export default class Utils {
+  constructor() {
+    if (this.constructor() == Utils) {
+      throw new Error("This class can't be instantiated!");
+    }
+  }
+
   /* obtenir le nombre de joueurs dans la partie (a travers le html) */
   static getNumOfPlayers() {
     let numPlayers = 0;
@@ -28,17 +35,17 @@ export default class Utils {
                           <p class="dream-description">${dream.description}</p>`;
   }
 
-  /* obtenir les reves des joueurs */
-  static getPlayersDreams() {
-    let playerDreams = [];
-    let chooseDreamWrapper = document.querySelector('.js-choose-dream-wrapper');
-
-    for (let playerChooseDream of chooseDreamWrapper) {
-
-    }
-    // TODO: implement.
-    // will be called when the start game button is clicked
-  }
+  // /* obtenir les reves des joueurs */
+  // static getPlayersDreams() {
+  //   let playerDreams = [];
+  //   let chooseDreamWrapper = document.querySelector('.js-choose-dream-wrapper');
+  //
+  //   for (let playerChooseDream of chooseDreamWrapper) {
+  //
+  //   }
+  //   // TODO: implement.
+  //   // will be called when the start game button is clicked
+  // }
 
   /* retourner les joueurs d'une partie et leurs informations initiales(nom, couleur, metier) */
   static initialPlayersInfo() {
@@ -140,4 +147,10 @@ export default class Utils {
 
   }
 
+  /* initialiser les espaces du jeu au premier joueur */
+  static initializeFirstPlayerSpots() {
+    let playerTurn = document.querySelector('.js-turn-action__player');
+    playerTurn.textContent = party.players[0].name;
+
+  }
 }
