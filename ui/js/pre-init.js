@@ -34,4 +34,6 @@ import EventHandlers from './classes/EventHandlers';
   let rollDiceButton = document.querySelector('.js-roll-dice-button');
   rollDiceButton.addEventListener('click', EventHandlers.onRollDice);
 
+  // check players names
+  document.querySelector('.players-table').addEventListener('keyup', EventHandlers.checkPlayersNames);
 })();
