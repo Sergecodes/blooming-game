@@ -190,4 +190,35 @@ export default class EventHandlers {
 
   }
 
+  static checkPlayersNames(event) {
+    const names = {
+      player1: document.querySelector('#playerInput1').value,
+      player2: document.querySelector('#playerInput2').value,
+      player3: document.querySelector('#playerInput3').value
+    };
+    document.querySelector('#playerInput2').style.borderColor = '';
+    document.querySelector('#playerInput3').style.borderColor = '';
+    const elm = document.querySelector('.para-test');
+    if(elm) {
+      elm.remove();
+    }
+    if(names.player1 === names.player2){
+      EventHandlers.showAlert('.player-2-setup', 'please choose a different name','#playerInput2')
+    }
+    if(names.player1 === names.player3) {
+      EventHandlers.showAlert('.player-3-setup', 'please choose a different name','#playerInput3')
+    }
+    if(names.player2 === names.player3) {
+      EventHandlers.showAlert('.player-3-setup', 'please choose a different name','#playerInput3')
+    }
+  }
+
+  static showAlert(parentSelector, message, inputSelector) {
+    document.querySelector(inputSelector).style.borderColor = 'red';
+    const p = document.createElement('p');
+    p.classList += 'para-test alert alert-danger w-75';
+    p.textContent = message;
+    document.querySelector(parentSelector).insertBefore(p, document.querySelector(parentSelector).firstChild);
+    console.log('please choose a different name...');
+  }
 }
