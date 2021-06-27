@@ -14,7 +14,7 @@ export default class EventHandlers {
       throw new Error("This class can't be instantiated!");
     }
   }
-  
+
   /* evoquee lorsque la valeur du montant max de small deal est modifiee */
   static onChangeMaxSmallDealAmt(event) {
     // le montant minimum d'un big deal est 1.5 fois le montant max d'un small deal
@@ -104,6 +104,7 @@ export default class EventHandlers {
     party.assets = ASSETS;
     party.dreams = DREAMS;
     party.professions = PROFESSIONS;
+    party.currentPlayer = party.players[0];
     console.log(party);
   }
 
@@ -187,7 +188,20 @@ export default class EventHandlers {
 
   /* quand un joueur lance le de */
   static onRollDice(event) {
+    let currentPlayer = party.currentPlayer;
+    console.log(currentPlayer);
 
+    // si le joueur est dans la partie rat race
+    if(currentPlayer.currentSection === "rat race") {
+      Utils.movePlayerMarkerRatRace(currentPlayer.number, Utils.getRandomDiceNumber());
+      party.shiftToNextPlayer();
+
+    } else if(currentPlayer.currentSection === "fast track") {
+
+    }
+
+    // then
+    // update player's info..
+    // advance to next player (party.currentPlayer = nextplayer...)
   }
-
 }

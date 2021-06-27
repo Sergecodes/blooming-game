@@ -2,17 +2,19 @@ import { SAVINGS_AMT } from '/ui/js/classes/Utils';
 
 export default class Player {
   // monthlyCashFlow is also the player's paycheck
-  constructor(name, playColour, profession) {
+  constructor(number, name, playColour, currentSection = "rat race") {
+    this.number = number;
     this.name = name;
     this.playColour = playColour;
-    this.profession = profession;
+    this.currentSection = currentSection;
   }
 }
 
 
 export class RatRacePlayer extends Player {
-  constructor(name, playColour, profession) {
-    super(name, playColour, profession);
+  constructor(number, name, playColour, profession) {
+    super(number, name, playColour);
+    this.profession = profession;
     this.cash = profession.salary + SAVINGS_AMT;
     this.assets = [];
   }
@@ -21,8 +23,8 @@ export class RatRacePlayer extends Player {
 
 export class FastTrackPlayer extends Player {
   // nb income statement and balance sheet figures are not applicable to players in the fast track.
-  constructor(ratRacePlayer, name, playColour, profession, dream) {
-    super(name, playColour, profession);
+  constructor(ratRacePlayer, dream) {
+    super(ratRacePlayer.number, ratRacePlayer.name, ratRacePlayer.playColour, "fast track");
     this.ratRacePlayer = ratRacePlayer;
     this.dream = dream;
     this.investments = [];  // les investissements du joueur

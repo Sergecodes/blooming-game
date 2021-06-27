@@ -30,13 +30,13 @@ export class BigDeal extends Opportunity {
   }
 }
 
-const SMALL_DEALS = [
+export const SMALL_DEALS = [
   // TODO: set small deal amount based on minimum small deal amount which has to be in party...
   // new Opportunity('small', 5000, )
 
 ];
 
-const BIG_DEALS = [
+export const BIG_DEALS = [
 
 ];
 

@@ -176,7 +176,7 @@
 	height: 35px;
 	border-radius: 50%;
 	border: 1.8px ridge gold;
-
+	
 }
 
 .player-list-table {
@@ -218,12 +218,12 @@
 }
 
 .turn-action__p {
-	text-align: initial;
+	text-align: justify;
 }
 
 .roll-dice-button {
 	font-size: larger;
-  box-shadow: 3px 3px rgba(24, 253, 4, 0.986);
+  /* box-shadow: 3px 3px rgba(24, 253, 4, 0.986), -3px -3px rgba(24, 253, 4, 0.986); */
 }
 
 /* styles for spaces on the game */

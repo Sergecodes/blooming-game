@@ -6,6 +6,8 @@ import Profession from '/business/classes/Profession';
 export const SAVINGS_AMT = 10000;
 // le cout des reves
 export const DREAMS_COST = 1000000;
+const NUM_RAT_RACE_CELLS = 21;
+const NUM_FAST_TRACK_CELLS = 30;
 
 export default class Utils {
   constructor() {
@@ -56,7 +58,7 @@ export default class Utils {
       let nameAndColour = Utils.getPlayerNameAndColour(i+1);
       // on cree le joueur RatRace
       players.push(
-        new RatRacePlayer(nameAndColour.playerName, nameAndColour.playColour, Profession.getRandomProfession())
+        new RatRacePlayer(i+1, nameAndColour.playerName, nameAndColour.playColour, Profession.getRandomProfession())
       );
     }
 
@@ -114,20 +116,21 @@ export default class Utils {
     return { maxNumOfChildren, maxSmallDealAmt, minBigDealAmt, loanInterestPercent, exitAmt, duration };
   }
 
-  /* creer les marqueurs(pions) des joueurs */
+  /* creer et inserer les marqueurs(pions) des joueurs */
   static createPlayerMarkers() {
     let initialTokensSpace = document.querySelector('.js-start-here-cell').children[1];
 
     for (let i = 0; i < Utils.getNumOfPlayers(); i++) {
       const { playerName, playColour } = Utils.getPlayerNameAndColour(i+1);
       let playerToken = document.createElement('div');
-      playerToken.dataset.playerNumber = i + 1;  // ajouter l'attribut data-player-number au "token"
+      playerToken.dataset.playerNum = i + 1;  // ajouter l'attribut data-player-number au "token"
       playerToken.dataset.bsToggle = "tooltip";
       playerToken.dataset.bsPlacement="bottom";
       playerToken.title = playerName;
       playerToken.textContent = i + 1;
       playerToken.style.backgroundColor = playColour;
       playerToken.classList.add('player-token');
+      playerToken.classList.add(`js-player-token--p${i+1}`);
 
       initialTokensSpace.appendChild(playerToken);
     }
@@ -153,4 +156,45 @@ export default class Utils {
     playerTurn.textContent = party.players[0].name;
 
   }
+
+  /* obtenir un nombre aleatoire compris entre 1 et 6 inclusive */
+  static getRandomDiceNumber() {
+    return Math.floor(Math.random() * 6) + 1;
+  }
+
+  /* obtenir le pion d'un joueur */
+  static getPlayerMarker(playerNum) {
+    return document.querySelector(`.js-player-token--p${playerNum}`);
+  }
+
+  /* obtenir la case dans laquelle le pion du joueur se trouve */
+  static getPlayerMarkerCellNumber(playerNum) {
+    let markerCell = Utils.getPlayerMarker(playerNum).parentElement.parentElement;
+    let markerCellNum = parseInt(markerCell.dataset.cellNumber);
+
+    return markerCellNum;
+  }
+
+  /* deplacer le pion du joueur dans la partie rat race */
+  static movePlayerMarkerRatRace(playerNum, diceNumber) {
+    // algorithm: remove token from previous position and place it as child of new position
+    let currentCellNum = Utils.getPlayerMarkerCellNumber(playerNum);
+    let newCellNum = (currentCellNum + diceNumber) % NUM_RAT_RACE_CELLS;
+    // si on est ici => on avait 21 % 21 = 0.
+    if (newCellNum === 0) {
+      newCellNum = 1;
+    }
+
+    // obtenir la case rat race ayant pour numero 'newCellNum'
+    let newCell = document.querySelector(`[data-is-rr-cell='true'][data-cell-number='${newCellNum}']`);
+
+    // transporter le pion du joueur
+    newCell.children[1].appendChild(Utils.getPlayerMarker(playerNum));
+  }
+
+  /* deplacer le pion du joueur dans la partie fast track */
+  static movePlayerMarkerFastTrack(playerNum, diceNumber) {
+
+  }
+
 }
