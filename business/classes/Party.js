@@ -45,7 +45,6 @@ export default class Party {
     }
   }
 
-
   /* pointer au prochain joueur */
   shiftToNextPlayer() {
     this.currentPlayer = this.nextPlayer;

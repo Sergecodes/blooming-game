@@ -30,24 +30,17 @@ export default class Utils {
     return numPlayers;
   }
 
-  /* creer un reve (l'inserer dans le html) */
+  /* creer un reve (l'inserer dans le html) et l'affecter au joueur qui l'a choisi */
   static createDream(dream, playerNum) {
     let dreamInfo = document.querySelector(`.js-dream-info--p${playerNum}`);
     dreamInfo.innerHTML = `<p class="dream-title">${dream.name}</p>
                           <p class="dream-description">${dream.description}</p>`;
-  }
 
-  // /* obtenir les reves des joueurs */
-  // static getPlayersDreams() {
-  //   let playerDreams = [];
-  //   let chooseDreamWrapper = document.querySelector('.js-choose-dream-wrapper');
-  //
-  //   for (let playerChooseDream of chooseDreamWrapper) {
-  //
-  //   }
-  //   // TODO: implement.
-  //   // will be called when the start game button is clicked
-  // }
+    if (party !== undefined) {
+      party.players[playerNum - 1].dream = dream;
+    }
+
+  }
 
   /* retourner les joueurs d'une partie et leurs informations initiales(nom, couleur, metier) */
   static initialPlayersInfo() {
@@ -180,7 +173,7 @@ export default class Utils {
     // algorithm: remove token from previous position and place it as child of new position
     let currentCellNum = Utils.getPlayerMarkerCellNumber(playerNum);
     let newCellNum = (currentCellNum + diceNumber) % NUM_RAT_RACE_CELLS;
-    // si on est ici => on avait 21 % 21 = 0.
+    // si on est ici => on avait (NUM_RAT_RACE_CELLS % NUM_RAT_RACE_CELLS) = 0.
     if (newCellNum === 0) {
       newCellNum = 1;
     }
@@ -190,6 +183,7 @@ export default class Utils {
 
     // transporter le pion du joueur
     newCell.children[1].appendChild(Utils.getPlayerMarker(playerNum));
+
   }
 
   /* deplacer le pion du joueur dans la partie fast track */
