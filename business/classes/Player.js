@@ -10,6 +10,10 @@ export default class Player {
     this.currentSection = currentSection;
     this.dream = dream;
   }
+
+  drawCard(card) {
+
+  }
 }
 
 

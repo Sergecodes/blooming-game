@@ -121,7 +121,7 @@ export default class EventHandlers {
     let leftArrows = document.querySelectorAll(".js-choose-dream__arrow--left");
     for (let leftArrow of leftArrows) {
       leftArrow.addEventListener('click', e => {
-        const playerNum = parseInt(e.target.dataset.playerNum);
+        const playerNum = parseInt(e.target.dataset.chooseDreamPlayerNum);
 
         if(playerNum === 1) {
           player1.position <= 0 ? player1.position = DREAMS.length - 1 : player1.position -= 1;
@@ -141,7 +141,7 @@ export default class EventHandlers {
     let rightArrows = document.querySelectorAll(".js-choose-dream__arrow--right");
     for (let rightArrow of rightArrows) {
       rightArrow.addEventListener('click', e => {
-        const playerNum = parseInt(e.target.dataset.playerNum);
+        const playerNum = parseInt(e.target.dataset.chooseDreamPlayerNum);
 
         if(playerNum == 1) {
           player1.position >= DREAMS.length - 1 ? player1.position = 0 : player1.position += 1;
@@ -188,12 +188,16 @@ export default class EventHandlers {
 
   /* quand un joueur lance le de */
   static onRollDice(event) {
-    let currentPlayer = party.currentPlayer;
-    console.log(currentPlayer);
+    let currentPlayer = party.currentPlayer, currentPlayerNum = currentPlayer.number;
 
     // si le joueur est dans la partie rat race
     if(currentPlayer.currentSection === "rat race") {
-      Utils.movePlayerMarkerRatRace(currentPlayer.number, Utils.getRandomDiceNumber());
+
+      Utils.movePlayerMarkerRR(currentPlayerNum, Utils.getRandomDiceNumber());
+      Utils.updateActivePlayerBox(currentPlayerNum, party.nextPlayer.number);
+      // other stuffs... updates, etc
+      // set player box active cell to current player
+      Utils.resetGameActionBox(party.nextPlayer);
       party.shiftToNextPlayer();
 
     } else if(currentPlayer.currentSection === "fast track") {

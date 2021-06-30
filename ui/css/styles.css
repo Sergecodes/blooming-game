@@ -176,7 +176,7 @@
 	height: 35px;
 	border-radius: 50%;
 	border: 1.8px ridge gold;
-	
+
 }
 
 .player-list-table {
@@ -189,10 +189,14 @@
 }
 
 .player-list-row__cell {
-	border: 2px solid saddlebrown;
+	/* border: 2px solid saddlebrown; */
+	/* border: 1px solid greenyellow; */
 	color: #484343;
-	padding-left: 7px;
-	padding-right: 7px;
+	padding: 5px;
+}
+
+.player-list-row__cell--active {
+	background-color: greenyellow;
 }
 
 /* style to set on the cell of the active player's box */
