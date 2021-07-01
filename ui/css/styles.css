@@ -221,6 +221,11 @@
 	padding: 7px;
 }
 
+.turn-action__player {
+	display: block;
+	text-decoration: underline;
+}
+
 .turn-action__p {
 	text-align: justify;
 }
@@ -228,6 +233,17 @@
 .roll-dice-button {
 	font-size: larger;
   /* box-shadow: 3px 3px rgba(24, 253, 4, 0.986), -3px -3px rgba(24, 253, 4, 0.986); */
+}
+
+.repay-borrow-buttons-wrapper,
+.end-turn-button {
+	display: none;
+	font-size: larger;
+	opacity: 0.8;
+}
+
+.end-turn-button {
+	text-align: center;
 }
 
 /* styles for spaces on the game */

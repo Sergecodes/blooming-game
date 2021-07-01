@@ -34,4 +34,7 @@ import EventHandlers from './classes/EventHandlers';
   let rollDiceButton = document.querySelector('.js-roll-dice-button');
   rollDiceButton.addEventListener('click', EventHandlers.onRollDice);
 
+  let endTurnButton = document.querySelector('.js-end-turn-button');
+  endTurnButton.addEventListener('click', EventHandlers.onEndPlayTurn);
+
 })();

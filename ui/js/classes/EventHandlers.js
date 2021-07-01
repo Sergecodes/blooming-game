@@ -123,15 +123,15 @@ export default class EventHandlers {
       leftArrow.addEventListener('click', e => {
         const playerNum = parseInt(e.target.dataset.chooseDreamPlayerNum);
 
-        if(playerNum === 1) {
+        if (playerNum === 1) {
           player1.position <= 0 ? player1.position = DREAMS.length - 1 : player1.position -= 1;
           Utils.createDream(DREAMS[player1.position], playerNum);
 
-        } else if(playerNum === 2) {
+        } else if (playerNum === 2) {
           player2.position <= 0 ? player2.position = DREAMS.length - 1 : player2.position -= 1;
           Utils.createDream(DREAMS[player2.position], playerNum);
 
-        } else if(playerNum === 3) {
+        } else if (playerNum === 3) {
           player3.position <= 0 ? player3.position = DREAMS.length - 1 : player3.position -= 1;
           Utils.createDream(DREAMS[player3.position], playerNum);
         }
@@ -143,15 +143,15 @@ export default class EventHandlers {
       rightArrow.addEventListener('click', e => {
         const playerNum = parseInt(e.target.dataset.chooseDreamPlayerNum);
 
-        if(playerNum == 1) {
+        if (playerNum == 1) {
           player1.position >= DREAMS.length - 1 ? player1.position = 0 : player1.position += 1;
           Utils.createDream(DREAMS[player1.position], playerNum);
 
-        } else if(playerNum == 2) {
+        } else if (playerNum == 2) {
           player2.position >= DREAMS.length - 1 ? player2.position = 0 : player2.position += 1;
           Utils.createDream(DREAMS[player2.position], playerNum);
 
-        } else if(playerNum == 3) {
+        } else if (playerNum == 3) {
           player3.position >= DREAMS.length - 1 ? player3.position = 0 : player3.position += 1;
           Utils.createDream(DREAMS[player3.position], playerNum);
         }
@@ -186,26 +186,31 @@ export default class EventHandlers {
     });
   }
 
+  /* evoquee lorsqu'un joueur clique sur le bouton "End Turn" pour terminer son tour */
+  static onEndPlayTurn(event) {
+    Utils.updateActivePlayerBox(party.currentPlayer.number, party.nextPlayer.number);
+    Utils.resetGameActionBox(party.nextPlayer);
+
+    // avancer au joueur suivant (party.currentPlayer = nextplayer...)
+    party.shiftToNextPlayer();
+  }
+
   /* quand un joueur lance le de */
   static onRollDice(event) {
     let currentPlayer = party.currentPlayer, currentPlayerNum = currentPlayer.number;
 
     // si le joueur est dans la partie rat race
-    if(currentPlayer.currentSection === "rat race") {
-
+    if (currentPlayer.currentSection === "rat race") {
       Utils.movePlayerMarkerRR(currentPlayerNum, Utils.getRandomDiceNumber());
-      Utils.updateActivePlayerBox(currentPlayerNum, party.nextPlayer.number);
+      // Utils.setGameActionBoxRR(Utils.getSpaceType(Utils.getPlayerMarkerCellNumber(currentPlayerNum), 'rr'));
       // other stuffs... updates, etc
       // set player box active cell to current player
-      Utils.resetGameActionBox(party.nextPlayer);
-      party.shiftToNextPlayer();
 
-    } else if(currentPlayer.currentSection === "fast track") {
+    } else if (currentPlayer.currentSection === "fast track") {
 
     }
 
-    // then
-    // update player's info..
-    // advance to next player (party.currentPlayer = nextplayer...)
+    Utils.displayFinishTurnMenu();
   }
+
 }

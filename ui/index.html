@@ -206,8 +206,6 @@
 	</div>
 	<button class="btn-primary w-50 p-2 mx-auto mt-3 start-button js-start-button">START</button>
 
-	<!-- 11 horizontal cells & 8 vertical cells for fasttrack -->
-	<!-- 7 horizontal cells & 6 vertical cells for rat race -->
 	<!-- rr = Rat race, ft = Fast track */ -->
 	<div class="game-board js-game-board">
 		<table class="game-table" border="2">
@@ -337,10 +335,17 @@
 							<td rowspan="3" colspan="7">
 								<section class="turn-info">
 					        <div class="turn-action js-turn-action">
-				            <p class="h2 js-turn-action__player"></p><br>
+				            <p class="h2 mb-1 turn-action__player js-turn-action__player"></p>
 				            <p class="h3 turn-action__p turn-action__p--title js-turn-action__p--title">When you are ready, roll the dice and take your turn.</p>
-				            <p class="turn-action__p turn-action__p--description js-turn-action__p--description">Before you start your turn, review your financial statement. You may also  use this time to repay liabilities or borrow money.</p>
+				            <p class="mb-4 turn-action__p turn-action__p--description js-turn-action__p--description">Before you start your turn, review your financial statement. You may also  use this time to repay liabilities or borrow money.</p>
 					         	<button class="btn btn-secondary roll-dice-button js-roll-dice-button">ROLL</button>
+
+										<!-- this div is initially set to display: none -->
+										<div class="mb-4 repay-borrow-buttons-wrapper js-repay-borrow-buttons-wrapper">
+											<button class="btn btn-warning repay-button js-repay-button">REPAY</button>
+											<button class="btn btn-warning borrow-button js-borrow-button">BORROW</button>
+										</div>
+										<button class="btn btn-secondary end-turn-button js-end-turn-button">END TURN</button>
 					        </div>
 						    </section>
 							</td>
