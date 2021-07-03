@@ -204,7 +204,7 @@
 	background-color: #97994E;
 }
 
-.turn-info {
+.turn-action-container {
 	display: flex;
 	justify-content: center;
 }
@@ -219,6 +219,7 @@
   box-shadow: 0 2px 1px grey ;
 	margin-bottom: 2px;
 	padding: 7px;
+	padding-left: .9rem;
 }
 
 .turn-action__player {
@@ -226,8 +227,15 @@
 	text-decoration: underline;
 }
 
-.turn-action__p {
+.turn-action__description {
 	text-align: justify;
+}
+
+.turn-action--end-turn,
+.turn-action--charity,
+.turn-action--baby,
+.turn-action--opportunity {
+	display: none;
 }
 
 .roll-dice-button {
@@ -235,11 +243,10 @@
   /* box-shadow: 3px 3px rgba(24, 253, 4, 0.986), -3px -3px rgba(24, 253, 4, 0.986); */
 }
 
-.repay-borrow-buttons-wrapper,
-.end-turn-button {
-	display: none;
-	font-size: larger;
-	opacity: 0.8;
+.action-buttons-wrapper {
+	opacity: 0.7;
+	display: flex;
+	justify-content: space-around;
 }
 
 .end-turn-button {

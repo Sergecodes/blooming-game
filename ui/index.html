@@ -207,6 +207,7 @@
 	<button class="btn-primary w-50 p-2 mx-auto mt-3 start-button js-start-button">START</button>
 
 	<!-- rr = Rat race, ft = Fast track */ -->
+	<!-- LA STRUCTURE DES CASES (td) NE DOIT PAS ETRE MODIFIEE ! -->
 	<div class="game-board js-game-board">
 		<table class="game-table" border="2">
 			<tr>
@@ -333,20 +334,62 @@
 								<div class="token-space token-space--rr"></div>
 							</td>
 							<td rowspan="3" colspan="7">
-								<section class="turn-info">
-					        <div class="turn-action js-turn-action">
-				            <p class="h2 mb-1 turn-action__player js-turn-action__player"></p>
-				            <p class="h3 turn-action__p turn-action__p--title js-turn-action__p--title">When you are ready, roll the dice and take your turn.</p>
-				            <p class="mb-4 turn-action__p turn-action__p--description js-turn-action__p--description">Before you start your turn, review your financial statement. You may also  use this time to repay liabilities or borrow money.</p>
-					         	<button class="btn btn-secondary roll-dice-button js-roll-dice-button">ROLL</button>
+								<section class="mb-2 turn-action-container js-turn-action-container">
+									<!-- LA STRUCTURE DE CES DIV NE DOIT PAS ETRE MODIFIEE ! -->
+									<!-- New turn box, No 0 -->
+					        <div class="turn-action js-turn-action turn-action--new-turn js-turn-action--new-turn">
+				            <p class="h3 mb-3 turn-action__player js-turn-action__player"></p>
+										<p class="h4 text-start turn-action__title js-turn-action__title">When you are ready, roll the dice and take your turn.</p>
+				            <p class="mb-4 turn-action__description js-turn-action__description">Before you start your turn, review your financial statement. You may also  use this time to repay liabilities or borrow money.</p>
+					         	<button class="btn btn-secondary js-roll-dice-button">ROLL</button>
+									</div>
 
-										<!-- this div is initially set to display: none -->
-										<div class="mb-4 repay-borrow-buttons-wrapper js-repay-borrow-buttons-wrapper">
-											<button class="btn btn-warning repay-button js-repay-button">REPAY</button>
-											<button class="btn btn-warning borrow-button js-borrow-button">BORROW</button>
+									<!-- These divs are initially set to display: none -->
+									<!-- End turn box, No 1 -->
+									<div class="turn-action js-turn-action turn-action--end-turn js-turn-action--end-turn">
+										<p class="h4 text-center turn-action__title js-turn-action__title">FINISH YOUR TURN</p>
+				            <p class="mb-5 turn-action__description js-turn-action__description">Before you end your turn, review your financial statement. You may also use this time to <b>repay liabilities</b> or <b>borrow money</b>.</p>
+										<div class="mb-4 action-buttons-wrapper">
+											<button class="btn btn-warning js-repay-button">REPAY</button>
+											<button class="btn btn-warning js-borrow-button">BORROW</button>
 										</div>
-										<button class="btn btn-secondary end-turn-button js-end-turn-button">END TURN</button>
-					        </div>
+										<button class="btn btn-secondary js-end-turn-button">END TURN</button>
+									</div>
+
+									<!-- Charity space box, No 2-->
+									<div class="turn-action js-turn-action turn-action--charity js-turn-action--charity">
+										<p class="h4 text-center turn-action__title js-turn-action__title">DONATE TO CHARITY</p>
+				            <p class="mb-4 turn-action__description js-turn-action__description">Donate 10% of your total income to roll 1 or 2 die over your next 3 turns.</p>
+										<div class="mb-5 action-buttons-wrapper">
+											<button class="btn btn-warning js-donate-button">DONATE</button>
+											<button class="btn btn-secondary js-pass-button">PASS</button>
+										</div>
+									</div>
+
+									<!-- Baby space box, No 3-->
+									<div class="turn-action js-turn-action turn-action--baby js-turn-action--baby">
+										<p class="h4 text-center turn-action__title js-turn-action__title">NEW BABY!</p>
+				            <p class="mb-5 turn-action__description js-turn-action__description">
+											<span class="d-block mb-3">Congratulations, one child has been added to your dependents.</span>
+											<span class="fw-bold">Child Expenses will be increased by _____ frs. </span>
+										</p>
+										<button class="btn btn-secondary js-done-button">DONE</button>
+									</div>
+
+									<!-- Opportunity space box, No 4 -->
+									<div class="turn-action js-turn-action turn-action--opportunity js-turn-action--opportunity">
+										<p class="h4 text-center turn-action__title js-turn-action__title">DEAL OPPORTUNITY</p>
+				            <p class="mb-5 turn-action__description js-turn-action__description">
+											<span class="d-block mb-2">Which type of deal do you want?</span>
+											<span class="d-block fw-bold">Small deals cost <span class="js-small-deal-amt"></span> or less.</span>
+											<span class="fw-bold">Big deals cost <span class="js-big-deal-amt"></span> or more.</span>
+										</p>
+										<div class="mb-4 action-buttons-wrapper">
+											<button class="btn btn-warning js-small-deal-button">SMALL</button>
+											<button class="btn btn-warning js-big-deal-button">BIG</button>
+										</div>
+										<button class="btn btn-secondary js-pass-button">PASS</button>
+									</div>
 						    </section>
 							</td>
 							<td class="rr-cell doodad-space" data-cell-number="8" data-is-rr-cell="true" data-bs-toggle="tooltip" data-bs-placement="left" data-space-name="doodad" title="Doodad space">

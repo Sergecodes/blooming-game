@@ -166,7 +166,7 @@ export default class EventHandlers {
     // creer les cases pour distinguer le joueur courant des autres joueurs
     Utils.insertPlayerBoxes();
     // remplir certains elements par l'information du premier joueur
-    Utils.initializeFirstPlayerSpots();
+    Utils.fillGameAreas();
 
     const chooseDreamWrapper = document.querySelector(".js-choose-dream-wrapper");
     chooseDreamWrapper.style.display = 'none';
@@ -186,6 +186,22 @@ export default class EventHandlers {
     });
   }
 
+  /* quand un joueur lance le de */
+  static onRollDice(event) {
+    let currentPlayer = party.currentPlayer, currentPlayerNum = currentPlayer.number;
+
+    // si le joueur est dans la partie rat race
+    if (currentPlayer.currentSection === "rat race") {
+      Utils.movePlayerMarkerRR(currentPlayerNum, Utils.getRandomDiceNumber());
+      Utils.setGameActionBoxRR(Utils.getSpaceType(Utils.getPlayerMarkerCellNumber(currentPlayerNum), 'rr'));
+      // other stuffs... updates, etc
+      // set player box active cell to current player
+
+    } else if (currentPlayer.currentSection === "fast track") {
+
+    }
+  }
+
   /* evoquee lorsqu'un joueur clique sur le bouton "End Turn" pour terminer son tour */
   static onEndPlayTurn(event) {
     Utils.updateActivePlayerBox(party.currentPlayer.number, party.nextPlayer.number);
@@ -195,21 +211,13 @@ export default class EventHandlers {
     party.shiftToNextPlayer();
   }
 
-  /* quand un joueur lance le de */
-  static onRollDice(event) {
-    let currentPlayer = party.currentPlayer, currentPlayerNum = currentPlayer.number;
+  /* evoquee lorsqu'un joueur clique sur le bouton 'Pass' apres avoit atterit sur la case "Charity" */
+  static onRejectCharity(event) {
+    Utils.displayFinishTurnMenu();
+  }
 
-    // si le joueur est dans la partie rat race
-    if (currentPlayer.currentSection === "rat race") {
-      Utils.movePlayerMarkerRR(currentPlayerNum, Utils.getRandomDiceNumber());
-      // Utils.setGameActionBoxRR(Utils.getSpaceType(Utils.getPlayerMarkerCellNumber(currentPlayerNum), 'rr'));
-      // other stuffs... updates, etc
-      // set player box active cell to current player
-
-    } else if (currentPlayer.currentSection === "fast track") {
-
-    }
-
+  /* lorsque l'utilisateur clique sur les boutons "PASS" ou "DONE" */
+  static onClickDoneButton(event) {
     Utils.displayFinishTurnMenu();
   }
 

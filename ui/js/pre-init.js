@@ -31,10 +31,23 @@ import EventHandlers from './classes/EventHandlers';
   // ajouter l'evenement a effectuer lorsqu'un joueur parcourt les reves
   EventHandlers.onChangeDream();
 
+  // Action buttons...
   let rollDiceButton = document.querySelector('.js-roll-dice-button');
   rollDiceButton.addEventListener('click', EventHandlers.onRollDice);
 
   let endTurnButton = document.querySelector('.js-end-turn-button');
   endTurnButton.addEventListener('click', EventHandlers.onEndPlayTurn);
+
+  let passButtons = document.querySelectorAll('.js-pass-button');
+  for (let passButton of passButtons) {
+    passButton.addEventListener('click', EventHandlers.onClickDoneButton);
+  }
+
+  let doneButtons = document.querySelectorAll('.js-done-button');
+  for (let doneButton of doneButtons) {
+    doneButton.addEventListener('click', EventHandlers.onClickDoneButton);
+  }
+
+
 
 })();

@@ -177,11 +177,14 @@ export default class Utils {
 
   }
 
-  /* initialiser les espaces du jeu au premier joueur */
-  static initializeFirstPlayerSpots() {
+  /* remplir certains espaces du jeu */
+  static fillGameAreas() {
     let playerTurn = document.querySelector('.js-turn-action__player');
     playerTurn.textContent = `${party.players[0].name}'s turn`;
 
+    // inserer les montants de limites de small deal et big deal
+    document.querySelector('.js-small-deal-amt').textContent = party.maxSmallDealAmt;
+    document.querySelector('.js-big-deal-amt').textContent = party.minBigDealAmt;
   }
 
   /* obtenir un nombre aleatoire compris entre 1 et 6 inclusive */
@@ -228,68 +231,60 @@ export default class Utils {
     nextPlayerBox.classList.add('player-list-row__cell--active');
   }
 
-  /* remettre le menu des actions a' son etat initial */
-  static resetGameActionBox(nextPlayer) {
-    // document.querySelector('.js-repay-button').style.display = 'none';
-    // document.querySelector('.js-borrow-button').style.display = 'none';
-    document.querySelector('.js-end-turn-button').style.display = 'none';
-    let buttonsWrapper = document.querySelector('.js-repay-borrow-buttons-wrapper');
-    buttonsWrapper.style.display = 'none';
+  /* obtenir le bloc de menu pour l'action courant */
+  static getCurrentActionBox() {
+    let actionBoxContainer = document.querySelector('.js-turn-action-container');
+    for (let actionBox of actionBoxContainer.children) {
+      if (getComputedStyle(actionBox).display !== 'none') {
+        return actionBox;
+      }
+    }
 
-    let rollDiceButton = document.querySelector('.js-roll-dice-button');
-    rollDiceButton.style.display = 'initial';
-
-    let turnActionDiv = document.querySelector('.js-turn-action');
-    let turnActionPlayer = document.querySelector('.js-turn-action__player');
-    let turnActionTitle = document.querySelector('.js-turn-action__p--title');
-    let turnActionDescription = document.querySelector('.js-turn-action__p--description');
-
-    turnActionPlayer.style.display = 'block';
-    turnActionPlayer.textContent = `${nextPlayer.name}'s turn`;
-    turnActionTitle.textContent = 'When you are ready, roll the dice and take your turn.';
-    turnActionDescription.textContent = 'Before you start your turn, review your financial statement. You may also use this time to repay liabilities or borrow money.';
-
+    console.error("OOps...");
+    return null;
   }
 
-  static displayFinishTurnMenu() {
-    let rollDiceButton = document.querySelector('.js-roll-dice-button');
-    let endTurnButton = document.querySelector('.js-end-turn-button');
+  /* remplacer le contenu du bloc d'action */
+  static replaceActionBox(newActionBox) {
+    let currentActionBox = Utils.getCurrentActionBox();
+    currentActionBox.style.display = 'none';
+    newActionBox.style.display = 'block';
+  }
 
-    rollDiceButton.style.display = 'none';
-    endTurnButton.style.display = 'initial';
+  /* remettre le menu des actions a' son etat initial */
+  static resetGameActionBox(nextPlayer) {
+    Utils.replaceActionBox(document.querySelector('.js-turn-action--new-turn'));
 
-    let turnActionDiv = document.querySelector('.js-turn-action');
+    // let turnActionPlayer = document.querySelectorAll('.js-turn-action__player')[0];
     let turnActionPlayer = document.querySelector('.js-turn-action__player');
-    let turnActionTitle = document.querySelector('.js-turn-action__p--title');
-    let turnActionDescription = document.querySelector('.js-turn-action__p--description');
+    turnActionPlayer.textContent = `${nextPlayer.name}'s turn`;
+  }
 
-    turnActionPlayer.style.display = 'none';
-    turnActionTitle.textContent = 'FINISH YOUR TURN';
-    turnActionDescription.innerHTML = 'Before you end your turn, review your financial statement. You may also use this time to <b>repay liabilities</b> or <b>borrow money</b>.';
-    turnActionTitle.style.textAlign = 'center';
-
-    let buttonsWrapper = document.querySelector('.js-repay-borrow-buttons-wrapper');
-    buttonsWrapper.style.display = 'flex';
-    buttonsWrapper.style.justifyContent = 'space-around';
+  /* afficher le menu de fin de tour du joueur */
+  static displayFinishTurnMenu() {
+    Utils.replaceActionBox(document.querySelector('.js-turn-action--end-turn'));
   }
 
   static setGameActionBoxRR(space) {
-    let turnActionPlayer = document.querySelector('.js-turn-action__player');
-    let turnActionTitle = document.querySelector('.js-turn-action__p--title');
-    let turnActionDescription = document.querySelector('.js-turn-action__p--description');
     let spaceColor = SPACE_BG_COLORS[space];
     console.log(space);
+    // when all spaces are done, do this instead and remove all the corresponding lines in the if conditions
+    // Utils.replaceActionBox(document.querySelector(`.js-turn-action--${space}`));
 
     if (space === "charity") {
-      turnActionPlayer.style.display = 'none';
-      turnActionTitle.textContent = 'DONATE TO CHARITY';
+      Utils.replaceActionBox(document.querySelector('.js-turn-action--charity'));
+      let turnActionTitle = document.querySelectorAll('.js-turn-action__title')[2];
       turnActionTitle.style.color = spaceColor;
-      turnActionTitle.style.textAlign = 'center';
-      // continue this, then for all (all easy) spaces.
-    } else if (space === "doodad") {
-      // affiche une carte doodad aleatoire depuis la bd
-      // execute la carte
 
+    } else if (space === "baby") {
+      Utils.replaceActionBox(document.querySelector('.js-turn-action--baby'));
+      let turnActionTitle = document.querySelectorAll('.js-turn-action__title')[3];
+      turnActionTitle.style.color = spaceColor;
+
+    } else if (space === "opportunity") {
+      Utils.replaceActionBox(document.querySelector('.js-turn-action--opportunity'));
+      let turnActionTitle = document.querySelectorAll('.js-turn-action__title')[4];
+      turnActionTitle.style.color = spaceColor;
     }
 
   }
@@ -298,5 +293,4 @@ export default class Utils {
   static movePlayerMarkerFT(playerNum, diceNumber) {
 
   }
-
 }
