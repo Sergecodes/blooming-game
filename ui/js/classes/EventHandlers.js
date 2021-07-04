@@ -184,6 +184,7 @@ export default class EventHandlers {
     let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl)
     });
+    Utils.statusBar();
   }
 
   /* quand un joueur lance le de */

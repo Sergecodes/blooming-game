@@ -209,6 +209,16 @@
 	<!-- rr = Rat race, ft = Fast track */ -->
 	<!-- LA STRUCTURE DES CASES (td) NE DOIT PAS ETRE MODIFIEE ! -->
 	<div class="game-board js-game-board">
+		<div class="status-bar">
+			<div class="party-player">
+				<p><span>Party: </span><span>First game</span></p>
+				<p><span>Players: </span><span id="players-tokens"></span></p>
+			</div>
+			<div class="timer-box">
+				<p>mins: <span id="timer-mins"></span></p>
+				<p>secs: <span id="timer-secs">00</span></p>
+			</div>
+		</div>
 		<table class="game-table" border="2">
 			<tr>
 				<td colspan="11" class="lead board-title">Fast Track</td>

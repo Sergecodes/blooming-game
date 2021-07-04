@@ -293,4 +293,31 @@ export default class Utils {
   static movePlayerMarkerFT(playerNum, diceNumber) {
 
   }
+
+  static statusBar() {
+    console.log('party: ', party);
+    let gameTime = party.duration;
+    const playersToken = document.querySelector('#players-tokens');
+    party.players.forEach(player => {
+      playersToken.innerHTML += `<span class="player-token js-player-token--p${player.number}" style="background-color: ${player.playColour};">P${player.number}</span>`;
+    });
+    const timerMins = document.querySelector('#timer-mins');
+    const timerSecs = document.querySelector('#timer-secs');
+    timerMins.textContent = gameTime;
+    let i = 60;
+    const counter = setInterval(() => {
+      i--;
+      timerSecs.textContent = i;
+      console.log(i);
+      if(i < 1) {
+        i = 60;
+        gameTime--;
+        timerMins.textContent = gameTime;
+        if(gameTime < 0){
+          console.log('game end');
+          clearInterval(counter);
+        }
+      }
+    }, 1000);
+  }
 }
